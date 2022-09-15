@@ -11,3 +11,5 @@
   SendInput - **%CurrentDateTime%**:
   return
   ```
+- **2022-09-15 11:22 AM**: WIP: Write project proposal
+- **2022-09-15 12:28 PM**: WIP: Write project proposal
