@@ -36,6 +36,7 @@ With trusted local business information, Food Alliance provides a platform solut
 - Add food order system
 - Add visited validation system
 - Create a mobile version
+- Host my own instance of CORS Anywhere
 - Well documented
 
 ## Tools, Frameworks, Libraries, APIs, etc.
