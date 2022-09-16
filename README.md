@@ -16,3 +16,4 @@
 - **2022-09-16 09:52 AM**: Complete the initial project proposal
 - **2022-09-16 10:27 AM**: Researching on Yelp API documents
 - **2022-09-16 11:33 AM**: Researching on [cors-anywhere](https://github.com/Rob--W/cors-anywhere), decide to use public server for mvc and host my own instance of cors-anywhere server as a stretch goal
+- **2022-09-16 14:46 PM**: Complete initial MVP component tree
