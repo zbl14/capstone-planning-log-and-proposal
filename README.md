@@ -17,3 +17,4 @@
 - **2022-09-16 10:27 AM**: Researching on Yelp API documents
 - **2022-09-16 11:33 AM**: Researching on [cors-anywhere](https://github.com/Rob--W/cors-anywhere), decide to use public server for mvc and host my own instance of cors-anywhere server as a stretch goal
 - **2022-09-16 14:46 PM**: Complete initial MVP component tree
+- **2022-09-16 17:59 PM**: Conducted research on [Firebase](https://firebase.google.com/) and completed help-queue pratice with [Firestore](https://firebase.google.com/docs/firestore) and [Firebase Authentication](https://firebase.google.com/docs/auth)
