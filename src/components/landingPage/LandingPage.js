@@ -1,13 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import SearchBar from "./searchBar/SearchBar";
 
 const LandingPage = () => {
   return (
     <React.Fragment>
       <h1>LandingPage</h1>;
-      <Link to="/search">
-        <button submit>Search</button>
-      </Link>
+      <SearchBar />
     </React.Fragment>
   );
 };
