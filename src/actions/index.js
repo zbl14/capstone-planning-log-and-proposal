@@ -1,14 +1,9 @@
 import * as c from "./ActionTypes";
 
-export const getBusinessSuccess = (
-  businesses,
-  amountResults,
-  searchParams
-) => ({
+export const getBusinessSuccess = (businesses, amountResults) => ({
   type: c.GET_BUSINESS_SUCCESS,
   businesses,
   amountResults,
-  searchParams,
 });
 
 export const getBusinessFailure = (error) => ({

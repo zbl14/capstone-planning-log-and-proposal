@@ -8,7 +8,6 @@ describe("useBusinessSearchReducer", () => {
     isLoaded: false,
     businesses: [],
     amountResults: 0,
-    searchParams: { term: "", location: "" },
   };
 
   test("should succesfully throw a new error if a non-matching action type is passed into it", () => {
@@ -20,19 +19,16 @@ describe("useBusinessSearchReducer", () => {
   test("successfully getting businesses should change isLoaded to true and update business, amountResults and searchParams", () => {
     const businesses = "List of businesses";
     const amountResults = 1000;
-    const searchParams = { term: "burger", location: "irvine" };
     action = {
       type: c.GET_BUSINESS_SUCCESS,
       businesses,
       amountResults,
-      searchParams,
     };
 
     expect(useBusinessSearchReducer(initialState, action)).toEqual({
       isLoaded: true,
       businesses: "List of businesses",
       amountResults: 1000,
-      searchParams: { term: "burger", location: "irvine" },
       error: null,
     });
   });
@@ -48,7 +44,6 @@ describe("useBusinessSearchReducer", () => {
       isLoaded: true,
       businesses: [],
       amountResults: 0,
-      searchParams: { term: "", location: "" },
       error: "An error",
     });
   });
