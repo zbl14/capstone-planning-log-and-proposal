@@ -35,6 +35,7 @@ const Search = () => {
         term={searchParams.term}
         location={searchParams.location}
         amountResults={amountResults}
+        showResults={businesses ? businesses.length : 0}
       />
       <Map />
       <SearchResultListControl businesses={businesses} />
