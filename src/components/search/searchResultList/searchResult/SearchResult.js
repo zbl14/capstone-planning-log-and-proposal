@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const SearchResult = (props) => {
   const business = props.business;
@@ -24,6 +25,10 @@ const SearchResult = (props) => {
       <p>Busines Address: {addressLines}</p>
     </React.Fragment>
   );
+};
+
+SearchResult.propTypes = {
+  business: PropTypes.object,
 };
 
 export default SearchResult;
