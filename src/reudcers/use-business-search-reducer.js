@@ -8,7 +8,6 @@ const useBusinessSearchReducer = (state, action) => {
         isLoaded: true,
         businesses: action.businesses,
         amountResults: action.amountResults,
-        searchParams: action.searchParams,
       };
     case c.GET_BUSINESS_FAILURE:
       return {
