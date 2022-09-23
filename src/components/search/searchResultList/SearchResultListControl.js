@@ -3,6 +3,7 @@ import SearchResultList from "./SearchResultList";
 import SearchResultDetail from "./searchResultDetail/SearchResultDetail";
 
 const SearchResultListControl = (props) => {
+  const businesses = props.businesses;
   const [selectedSearchResult, setSelectedSearchResult] = useState(null);
 
   const handleClick = () => {
@@ -18,7 +19,7 @@ const SearchResultListControl = (props) => {
     curVisibleState = <SearchResultDetail />;
     buttonText = "Return to businesses list";
   } else {
-    curVisibleState = <SearchResultList business={props} />;
+    curVisibleState = <SearchResultList businesses={businesses} />;
     buttonText = "home";
   }
 
