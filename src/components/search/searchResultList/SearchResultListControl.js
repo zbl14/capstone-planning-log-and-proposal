@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SearchResultList from "./SearchResultList";
 import SearchResultDetail from "./searchResultDetail/SearchResultDetail";
+import PropTypes from "prop-types";
 
 const SearchResultListControl = (props) => {
   const businesses = props.businesses;
@@ -31,6 +32,10 @@ const SearchResultListControl = (props) => {
       <hr />
     </React.Fragment>
   );
+};
+
+SearchResultListControl.propTypes = {
+  businesses: PropTypes.object,
 };
 
 export default SearchResultListControl;
