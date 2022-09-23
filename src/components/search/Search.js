@@ -15,6 +15,8 @@ const Search = () => {
   const [businesses, amountResults, searchParams, performSearch] =
     useBusinessSearch(term, locationParam);
 
+  console.log(businesses);
+
   if (!term || !locationParam) {
     navigate("/");
   }
@@ -29,7 +31,11 @@ const Search = () => {
   return (
     <React.Fragment>
       <NavBar term={term} location={locationParam} search={search} />
-      <SearchResultSummary />
+      <SearchResultSummary
+        term={searchParams.term}
+        location={searchParams.location}
+        amountResults={amountResults}
+      />
       <Map />
       <SearchResultListControl businesses={businesses} />
     </React.Fragment>
