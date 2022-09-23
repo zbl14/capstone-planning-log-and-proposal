@@ -4,14 +4,14 @@ import { API_BASE_URL, BEARER_TOKEN } from "./config";
 import useBusinessSearchReducer from "../../reudcers/use-business-search-reducer";
 import { getBusinessSuccess, getBusinessFailure } from "../../actions/index";
 
-const useBusinessSearch = (term, location) => {
-  const initialState = {
-    isLoaded: false,
-    error: null,
-    businesses: [],
-    amountResults: 0,
-  };
+const initialState = {
+  isLoaded: false,
+  error: null,
+  businesses: [],
+  amountResults: 0,
+};
 
+const useBusinessSearch = (term, location) => {
   const [state, dispatch] = useReducer(useBusinessSearchReducer, initialState);
   const [searchParams, setSearchParams] = useState({ term, location });
 
@@ -35,7 +35,7 @@ const useBusinessSearch = (term, location) => {
         } else {
           // console.log(response);
           const jsonResponse = await response.json();
-          console.log(jsonResponse);
+          // console.log(jsonResponse);
           const action = getBusinessSuccess(
             jsonResponse.businesses,
             jsonResponse.total
@@ -53,12 +53,12 @@ const useBusinessSearch = (term, location) => {
   const { error, isLoaded, businesses, amountResults } = state;
 
   return [
-    error,
-    isLoaded,
     businesses,
     amountResults,
     searchParams,
     setSearchParams,
+    error,
+    isLoaded,
   ];
 };
 
