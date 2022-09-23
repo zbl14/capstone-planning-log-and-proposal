@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SearchResultList from "./SearchResultList";
-import SearchResultDetail from "./searchResultDetail/SearchResultDetails";
+import SearchResultDetail from "./searchResultDetail/SearchResultDetail";
 
 const SearchResultListControl = (props) => {
   const [selectedSearchResult, setSelectedSearchResult] = useState(null);
