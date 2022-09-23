@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import get from "./yelpAPI";
+import queryString from "query-string";
+import { API_BASE_URL, BEARER_TOKEN } from "./config";
 
 const useBusinessSearch = (term, location) => {
   const [error, setError] = useState(null);
@@ -8,15 +9,25 @@ const useBusinessSearch = (term, location) => {
   const [searchParams, setSearchParams] = useState({ term, location });
 
   useEffect(() => {
-    setBusinesses([]);
+    const get = (path, queryParams) => {
+      const query = queryString.stringify(queryParams);
+      return fetch(`${API_BASE_URL}${path}?${query}`, {
+        headers: {
+          Authorization: `Bearer ${BEARER_TOKEN}`,
+          Origin: "localhost",
+          withCredentials: true,
+        },
+      });
+    };
+    // setBusinesses([]);
     const fetchData = async () => {
       try {
-        const rawData = await get("/businesses/search", searchParams);
-        // console.log(rawData);
-        const response = await rawData.json();
+        const response = await get("/businesses/search", searchParams);
         console.log(response);
-        setBusinesses(response.businesses);
-        setAmountResults(response.total);
+        const jsonResponse = await response.json();
+        // console.log(jsonResponse);
+        setBusinesses(jsonResponse.businesses);
+        setAmountResults(jsonResponse.total);
       } catch (error) {
         setError(error);
       }
