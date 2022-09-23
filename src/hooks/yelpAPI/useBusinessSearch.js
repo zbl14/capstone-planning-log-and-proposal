@@ -13,10 +13,6 @@ const useBusinessSearch = (term, location) => {
   };
 
   const [state, dispatch] = useReducer(useBusinessSearchReducer, initialState);
-  // const [error, setError] = useState(null);
-  // const [isLoaded, setIsLoaded] = useState(false);
-  // const [businesses, setBusinesses] = useState([]);
-  // const [amountResults, setAmountResults] = useState();
   const [searchParams, setSearchParams] = useState({ term, location });
 
   useEffect(() => {
@@ -45,15 +41,10 @@ const useBusinessSearch = (term, location) => {
             jsonResponse.total
           );
           dispatch(action);
-          // setBusinesses(jsonResponse.businesses);
-          // setAmountResults(jsonResponse.total);
-          // setIsLoaded(true);
         }
       } catch (error) {
         const action = getBusinessFailure(error.message);
         dispatch(action);
-        // setError(error);
-        // setIsLoaded(true);
       }
     };
     fetchData();
