@@ -5,7 +5,7 @@ const SearchResult = (props) => {
   const business = props.business;
 
   const tags = business.categories.map((category) => (
-    <p key={business.id + business.title}>{category.title}</p>
+    <span key={business.id + category.title}>{category.title}</span>
   ));
 
   const addressLines = business.location.display_address.map((addressLine) => (
@@ -14,7 +14,7 @@ const SearchResult = (props) => {
 
   return (
     <React.Fragment>
-      <img src={props.business.image_url} alt="item" />
+      <img src={business.image_url} alt="item" />
       <p>Busines Name{business.name}</p>
       <p>Review Count:{business.review_count}</p>
       <p>Rating: {business.rating}</p>
