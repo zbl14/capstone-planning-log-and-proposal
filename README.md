@@ -18,3 +18,4 @@
 - **2022-09-16 11:33 AM**: Researching on [cors-anywhere](https://github.com/Rob--W/cors-anywhere), decide to use public server for mvc and host my own instance of cors-anywhere server as a stretch goal
 - **2022-09-16 14:46 PM**: Complete initial MVP component tree
 - **2022-09-16 17:59 PM**: Conducted research on [Firebase](https://firebase.google.com/) and completed help-queue pratice with [Firestore](https://firebase.google.com/docs/firestore) and [Firebase Authentication](https://firebase.google.com/docs/auth)
+- **2022-09-24 13:00 PM**: Work on [React Google Maps API](https://github.com/JustFly1984/react-google-maps-api), find out this tool does not support React18 at this moment. Can not show marker on the map
