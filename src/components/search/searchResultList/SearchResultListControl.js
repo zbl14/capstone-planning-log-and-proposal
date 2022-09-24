@@ -35,7 +35,7 @@ const SearchResultListControl = (props) => {
 };
 
 SearchResultListControl.propTypes = {
-  businesses: PropTypes.object,
+  businesses: PropTypes.array,
 };
 
 export default SearchResultListControl;
