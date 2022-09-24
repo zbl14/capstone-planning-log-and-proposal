@@ -5,6 +5,7 @@ import Map from "../map/Map";
 import SearchResultListControl from "../search/searchResultList/SearchResultListControl";
 import { useNavigate, useLocation } from "react-router-dom";
 import useBusinessSearch from "../../hooks/yelpAPI/useBusinessSearch";
+import { useLoadScript } from "@react-google-maps/api";
 
 const Search = () => {
   const location = useLocation();
@@ -14,8 +15,6 @@ const Search = () => {
   const locationParam = params.get("find_loc");
   const [businesses, amountResults, searchParams, performSearch] =
     useBusinessSearch(term, locationParam);
-
-  console.log(businesses);
 
   if (!term || !locationParam) {
     navigate("/");
@@ -28,6 +27,10 @@ const Search = () => {
     performSearch({ term, location });
   };
 
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyAw-NRVYJN5qSsNTkATz59olsr0WR5IwVY",
+  });
+
   return (
     <React.Fragment>
       <NavBar term={term} location={locationParam} search={search} />
@@ -37,7 +40,8 @@ const Search = () => {
         amountResults={amountResults}
         showResults={businesses ? businesses.length : 0}
       />
-      <Map />
+      {isLoaded ? <Map /> : null}
+      {/* <Map businesses={businesses} /> */}
       <SearchResultListControl businesses={businesses} />
     </React.Fragment>
   );
