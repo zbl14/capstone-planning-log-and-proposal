@@ -22,4 +22,4 @@
 - **2022-09-24 14:31 PM**: Research on [Google Map React](https://github.com/google-map-react/google-map-react), it supports React 18 since July 5, 2022
 - **2022-09-24 16:22 PM**: Google Map React supports React 18 but need to disable StrictMode :/ (https://github.com/google-map-react/google-map-react/issues/1116)
 - **2022-09-25 07:54 AM**: Disable StrictMode can address the issue that not showing marker on the map with **React Google Maps API** in React 18. Take this as a compromise solution.
-- **2022-09-25 08:14 AM**: Replace the compromise solution. Use MarkerF insead of Marker can address the issue. It can show markers under StrictMode.
+- **2022-09-25 08:14 AM**: Replace the compromise solution. Use MarkerF insead of Marker can address the issue. It can show markers under StrictMode. (https://github.com/JustFly1984/react-google-maps-api/issues/3048)
