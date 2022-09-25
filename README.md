@@ -19,3 +19,6 @@
 - **2022-09-16 14:46 PM**: Complete initial MVP component tree
 - **2022-09-16 17:59 PM**: Conducted research on [Firebase](https://firebase.google.com/) and completed help-queue pratice with [Firestore](https://firebase.google.com/docs/firestore) and [Firebase Authentication](https://firebase.google.com/docs/auth)
 - **2022-09-24 13:00 PM**: Work on [React Google Maps API](https://github.com/JustFly1984/react-google-maps-api), find out this tool does not support React18 at this moment. Can not show marker on the map
+- **2022-09-24 14:31 PM**: Research on [Google Map React](https://github.com/google-map-react/google-map-react), it supports React 18 since July 5, 2022
+- **2022-09-24 16:22 PM**: Google Map React supports React 18 but need to disable strict mode :/ (https://github.com/google-map-react/google-map-react/issues/1116)
+- **2022-09-25 07:54 AM**: Disable strict mode can address the issue that not showing marker on the map with **React Google Maps API** in React 18. Take this as a compromise solution.
