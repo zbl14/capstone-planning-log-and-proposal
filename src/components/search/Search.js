@@ -40,8 +40,7 @@ const Search = () => {
         amountResults={amountResults}
         showResults={businesses ? businesses.length : 0}
       />
-      {isLoaded ? <Map /> : null}
-      {/* <Map businesses={businesses} /> */}
+      {isLoaded ? <Map businesses={businesses} /> : null}
       <SearchResultListControl businesses={businesses} />
     </React.Fragment>
   );

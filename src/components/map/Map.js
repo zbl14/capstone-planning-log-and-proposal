@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
+import { GoogleMap, InfoWindow, MarkerF } from "@react-google-maps/api";
 
 const markers = [
   {
@@ -47,7 +47,7 @@ function Map() {
       mapContainerStyle={{ width: "50vw", height: "50vh" }}
     >
       {markers.map(({ id, name, position }) => (
-        <Marker
+        <MarkerF
           key={id}
           position={position}
           onClick={() => handleActiveMarker(id)}
@@ -57,7 +57,7 @@ function Map() {
               <div>{name}</div>
             </InfoWindow>
           ) : null}
-        </Marker>
+        </MarkerF>
       ))}
     </GoogleMap>
   );
