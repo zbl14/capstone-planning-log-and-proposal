@@ -28,7 +28,8 @@ const Search = () => {
   };
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyAw-NRVYJN5qSsNTkATz59olsr0WR5IwVY",
+    googleMapsApiKey: process.env.REACT_APP_MAP_KEY,
+    version: "weekly",
   });
 
   return (
