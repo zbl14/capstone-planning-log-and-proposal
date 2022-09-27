@@ -1,10 +1,18 @@
 import React from "react";
 import SearchResult from "./searchResult/SearchResult";
 import PropTypes from "prop-types";
+import { useLoadScript } from "@react-google-maps/api";
+import Map from "../../map/Map";
 
 const SearchResultList = (props) => {
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_MAP_KEY,
+    version: "weekly",
+  });
+
   return (
     <React.Fragment>
+      {isLoaded ? <Map businesses={props.businesses} /> : null}
       <hr />
       {Object.values(props.businesses).map((business) => (
         <SearchResult
