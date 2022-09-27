@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 const SearchResultSummary = (props) => {
   return (
     <React.Fragment>
-      <h1>This is a SearchResultSummary</h1>
       <p>
         {props.term} in {props.location}
       </p>
