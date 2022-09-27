@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CommentList from "./CommentList";
-import NewCommentForm from "./NewCommentForm";
+import CommentList from "./commentList/CommentList";
+import NewCommentForm from "./commentList/NewCommentForm";
 
 const SearchResultDetail = (props) => {
   const business = props.business;
