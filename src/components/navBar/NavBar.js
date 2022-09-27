@@ -1,12 +1,13 @@
 import React from "react";
 import SearchBar from "../landingPage/searchBar/SearchBar";
 import { Link } from "react-router-dom";
+import logo from "../../assets/foodie-alliance-logo.png";
 
 const NavBar = (props) => {
   return (
     <React.Fragment>
       <Link to="/">
-        <h1>Home, Logo placeholder</h1>
+        <img src={logo} alt="logo" width="75px" />
       </Link>
       <SearchBar
         term={props.term}
