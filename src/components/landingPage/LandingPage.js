@@ -1,6 +1,8 @@
 import React from "react";
 import SearchBar from "./searchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
+import { BackgroundSlideshow } from "./backgroundSlider/BackGroundSlider";
+import TopNav from "../TopNav";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -14,8 +16,17 @@ const LandingPage = () => {
   };
   return (
     <React.Fragment>
-      <h1>LandingPage</h1>;
-      <SearchBar search={search} />
+      <TopNav />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <SearchBar search={search} />
+      </div>
+      <BackgroundSlideshow />
     </React.Fragment>
   );
 };
