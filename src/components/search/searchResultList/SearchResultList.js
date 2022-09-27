@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 const SearchResultList = (props) => {
   return (
     <React.Fragment>
-      <h1>this is search result list</h1>
       <hr />
       {Object.values(props.businesses).map((business) => (
         <SearchResult key={business.id} business={business} />
@@ -14,8 +13,20 @@ const SearchResultList = (props) => {
   );
 };
 
+// const SearchResultList = (props) => {
+//   let searchResults;
+
+//   if (props.businesses && props.businesses.length > 0) {
+//     searchResults = props.businesses.map((business) => (
+//       <SearchResult key={business.id} business={business} />
+//     ));
+//   }
+
+//   return <div>{searchResults}</div>;
+// };
+
 SearchResultList.propTypes = {
-  business: PropTypes.object,
+  businesses: PropTypes.object,
 };
 
 export default SearchResultList;
