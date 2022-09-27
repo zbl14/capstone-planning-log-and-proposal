@@ -1,10 +1,13 @@
 import React from "react";
 import SearchBar from "../landingPage/searchBar/SearchBar";
+import { Link } from "react-router-dom";
 
 const NavBar = (props) => {
   return (
     <React.Fragment>
-      <h1>This is a NavBar</h1>
+      <Link to="/">
+        <h1>Home, Logo placeholder</h1>
+      </Link>
       <SearchBar
         term={props.term}
         location={props.location}
