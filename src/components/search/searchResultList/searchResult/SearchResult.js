@@ -13,6 +13,7 @@ import {
   Typography,
   Rating,
   Chip,
+  CardActionArea,
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
@@ -56,8 +57,10 @@ const SearchResult = (props) => {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <div onClick={() => props.whenSearchResultClicked(business.id)}>
+    <Card sx={{ minWidth: 200, maxWidth: 345 }}>
+      <CardActionArea
+        onClick={() => props.whenSearchResultClicked(business.id)}
+      >
         <CardHeader
           avatar={
             <Avatar sx={{}} alt={business.name} src="#" aria-label="business" />
@@ -90,7 +93,7 @@ const SearchResult = (props) => {
           </div>
           <div>{tags}</div>
         </CardContent>
-      </div>
+      </CardActionArea>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
