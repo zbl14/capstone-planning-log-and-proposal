@@ -9,7 +9,7 @@ const SearchResult = (props) => {
   ));
 
   const addressLines = business.location.display_address.map((addressLine) => (
-    <p key={business.id + addressLine}>{addressLine}</p>
+    <span key={business.id + addressLine}>{addressLine}</span>
   ));
 
   return (
