@@ -7,7 +7,11 @@ const SearchResultList = (props) => {
     <React.Fragment>
       <hr />
       {Object.values(props.businesses).map((business) => (
-        <SearchResult key={business.id} business={business} />
+        <SearchResult
+          whenSearchResultClicked={props.onSearchResultSelection}
+          key={business.id}
+          business={business}
+        />
       ))}
     </React.Fragment>
   );
@@ -26,7 +30,7 @@ const SearchResultList = (props) => {
 // };
 
 SearchResultList.propTypes = {
-  businesses: PropTypes.object,
+  businesses: PropTypes.array,
 };
 
 export default SearchResultList;

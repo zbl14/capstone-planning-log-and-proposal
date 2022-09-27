@@ -4,8 +4,8 @@ import SearchResultDetail from "./searchResultDetail/SearchResultDetail";
 import PropTypes from "prop-types";
 
 const SearchResultListControl = (props) => {
-  const businesses = props.businesses;
   const [selectedSearchResult, setSelectedSearchResult] = useState(null);
+  const businesses = props.businesses;
 
   const handleClick = () => {
     if (selectedSearchResult != null) {
@@ -13,20 +13,31 @@ const SearchResultListControl = (props) => {
     }
   };
 
+  const handleChangingSelectedSearchResult = (id) => {
+    if (businesses.length !== 0) {
+      const selection = businesses.filter((business) => business.id === id)[0];
+      setSelectedSearchResult(selection);
+    }
+  };
+
   let curVisibleState;
   let buttonText = null;
 
   if (selectedSearchResult != null) {
-    curVisibleState = <SearchResultDetail />;
+    curVisibleState = <SearchResultDetail business={selectedSearchResult} />;
     buttonText = "Return to businesses list";
   } else {
-    curVisibleState = <SearchResultList businesses={businesses} />;
+    curVisibleState = (
+      <SearchResultList
+        businesses={businesses}
+        onSearchResultSelection={handleChangingSelectedSearchResult}
+      />
+    );
     buttonText = "home";
   }
 
   return (
     <React.Fragment>
-      <h1>This is a SearchResultListControl</h1>
       {curVisibleState}
       <button onClick={handleClick}>{buttonText}</button>
       <hr />
