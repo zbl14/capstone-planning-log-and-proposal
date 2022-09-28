@@ -14,6 +14,7 @@ import {
   Rating,
   Chip,
   CardActionArea,
+  Container,
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
@@ -57,69 +58,76 @@ const SearchResult = (props) => {
   };
 
   return (
-    <Card sx={{ minWidth: 200, maxWidth: 345 }}>
-      <CardActionArea
-        onClick={() => props.whenSearchResultClicked(business.id)}
+    <Container>
+      <Card
+        sx={{
+          minWidth: 200,
+          maxWidth: 345,
+        }}
       >
-        <CardHeader
-          avatar={
-            <Avatar sx={{}} alt={business.name} src="#" aria-label="business" />
-          }
-          title={business.name}
-        />
-        <CardMedia
-          component="img"
-          height="194"
-          image={business.image_url}
-          alt={business.name}
-        />
-        <CardContent>
-          <div>
-            <Rating
-              name="rating"
-              value={business.rating}
-              precision={0.5}
-              // size="large"
-              readOnly
-            />
-            <p>{business.review_count} Reviews</p>
-          </div>
-          <p>
-            {business.location.city} · {business.price}
-          </p>
-          <div>
-            <DoneIcon color="success" />
-            <p>{transactions}</p>
-          </div>
-          <div>{tags}</div>
-        </CardContent>
-      </CardActionArea>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
+        <CardActionArea
+          onClick={() => props.whenSearchResultClicked(business.id)}
         >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>{business.name}</Typography>
-          <Typography paragraph>
-            Business Phone: {business.display_phone}
-          </Typography>
-          <Typography paragraph>Busines Address: {addressLines}</Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
+          <CardHeader
+            avatar={
+              <Avatar alt={business.name} src="#" aria-label="business" />
+            }
+            title={business.name}
+          />
+          <CardMedia
+            component="img"
+            height="194"
+            image={business.image_url}
+            alt={business.name}
+          />
+          <CardContent>
+            <div>
+              <Rating
+                name="rating"
+                value={business.rating}
+                precision={0.5}
+                // size="large"
+                readOnly
+              />
+              <p>{business.review_count} Reviews</p>
+            </div>
+            <p>
+              {business.location.city} · {business.price}
+            </p>
+            <div>
+              <DoneIcon color="success" />
+              <p>{transactions}</p>
+            </div>
+            <div>{tags}</div>
+          </CardContent>
+        </CardActionArea>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+          <ExpandMore
+            expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </ExpandMore>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>{business.name}</Typography>
+            <Typography paragraph>
+              Business Phone: {business.display_phone}
+            </Typography>
+            <Typography paragraph>Busines Address: {addressLines}</Typography>
+          </CardContent>
+        </Collapse>
+      </Card>
+    </Container>
   );
 };
 
