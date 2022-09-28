@@ -4,7 +4,14 @@ import NewReviewForm from "./reviewList/NewReviewForm";
 import ReviewDetail from "./reviewList/ReviewDetail";
 import EditReviewForm from "./reviewList/EditReviewForm";
 import db from "./../../../firebase";
-import { collection, addDoc, onSnapshot } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  onSnapshot,
+  doc,
+  updateDoc,
+  deleteDoc,
+} from "firebase/firestore";
 
 const SearchResultDetail = (props) => {
   const { business } = props;
@@ -54,11 +61,8 @@ const SearchResultDetail = (props) => {
     setSelectedReview(selection);
   };
 
-  const handleDeletingReview = (id) => {
-    const newMainReviewList = mainReviewList.filter(
-      (review) => review.id !== id
-    );
-    setMainReviewList(newMainReviewList);
+  const handleDeletingReview = async (id) => {
+    await deleteDoc(doc(db, "reviews", id));
     setSelectedReview(null);
   };
 
@@ -66,11 +70,8 @@ const SearchResultDetail = (props) => {
     setEditing(true);
   };
 
-  const handleEditingReview = (reviewToEdit) => {
-    const editedMainReviewList = mainReviewList
-      .filter((review) => review.id !== selectedReview.id)
-      .concat(reviewToEdit);
-    setMainReviewList(editedMainReviewList);
+  const handleEditingReview = async (reviewToEdit) => {
+    await updateDoc(doc(db, "reviews", reviewToEdit.id), reviewToEdit);
     setEditing(false);
     setSelectedReview(null);
   };
