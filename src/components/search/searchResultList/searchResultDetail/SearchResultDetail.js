@@ -1,15 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReviewList from "./reviewList/ReviewList";
 import NewReviewForm from "./reviewList/NewReviewForm";
 import ReviewDetail from "./reviewList/ReviewDetail";
 import EditReviewForm from "./reviewList/EditReviewForm";
+import db from "./../../../firebase";
+import { collection, addDoc, onSnapshot } from "firebase/firestore";
 
 const SearchResultDetail = (props) => {
-  const business = props.business;
+  const { business } = props;
   const [formVisibleOnPage, setFormVisibleOnPage] = useState(false);
   const [mainReviewList, setMainReviewList] = useState([]);
   const [selectedReview, setSelectedReview] = useState(null);
   const [editing, setEditing] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const unSubscribe = onSnapshot(
+      collection(db, "reviews"),
+      (collectionSnapshot) => {
+        const reviews = collectionSnapshot.docs.map((doc) => {
+          return {
+            ...doc.data(),
+            id: doc.id,
+          };
+        });
+        setMainReviewList(reviews);
+      },
+      (error) => {
+        setError(error.message);
+      }
+    );
+    return () => unSubscribe();
+  }, []);
 
   const handleClick = () => {
     if (selectedReview != null) {
@@ -21,9 +43,8 @@ const SearchResultDetail = (props) => {
     }
   };
 
-  const handleAddingNewReviewToList = (newReview) => {
-    const newMainReviewList = mainReviewList.concat(newReview);
-    setMainReviewList(newMainReviewList);
+  const handleAddingNewReviewToList = async (newReview) => {
+    await addDoc(collection(db, "reviews"), newReview);
     setFormVisibleOnPage(false);
   };
 
@@ -57,7 +78,9 @@ const SearchResultDetail = (props) => {
   let curVisibleState = null;
   let buttonText = null;
 
-  if (editing) {
+  if (error) {
+    curVisibleState = <p>There was an error: {error}</p>;
+  } else if (editing) {
     curVisibleState = (
       <EditReviewForm
         review={selectedReview}
