@@ -8,6 +8,7 @@ const ReviewDetail = (props) => {
       <h1>Reveiw detail</h1>
       <h3>Comment: {review.comment}</h3>
       <h4>Vote Count: {review.voteCount}</h4>
+      <button onClick={props.onClickingEdit}>Revise Review</button>
       <button onClick={() => onClickingDelete(review.id)}>Delete Review</button>
     </React.Fragment>
   );
@@ -16,6 +17,7 @@ const ReviewDetail = (props) => {
 ReviewDetail.propTypes = {
   review: PropTypes.object,
   onClickingDelete: PropTypes.func,
+  onClickingEdit: PropTypes.func,
 };
 
 export default ReviewDetail;

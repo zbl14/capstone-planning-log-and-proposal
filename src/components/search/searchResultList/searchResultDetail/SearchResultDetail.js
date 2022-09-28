@@ -2,17 +2,20 @@ import React, { useState } from "react";
 import ReviewList from "./reviewList/ReviewList";
 import NewReviewForm from "./reviewList/NewReviewForm";
 import ReviewDetail from "./reviewList/ReviewDetail";
+import EditReviewForm from "./reviewList/EditReviewForm";
 
 const SearchResultDetail = (props) => {
   const business = props.business;
   const [formVisibleOnPage, setFormVisibleOnPage] = useState(false);
   const [mainReviewList, setMainReviewList] = useState([]);
   const [selectedReview, setSelectedReview] = useState(null);
+  const [editing, setEditing] = useState(false);
 
   const handleClick = () => {
     if (selectedReview != null) {
       setFormVisibleOnPage(false);
       setSelectedReview(null);
+      setEditing(false);
     } else {
       setFormVisibleOnPage(!formVisibleOnPage);
     }
@@ -38,14 +41,36 @@ const SearchResultDetail = (props) => {
     setSelectedReview(null);
   };
 
+  const handleEditClick = () => {
+    setEditing(true);
+  };
+
+  const handleEditingReview = (reviewToEdit) => {
+    const editedMainReviewList = mainReviewList
+      .filter((review) => review.id !== selectedReview.id)
+      .concat(reviewToEdit);
+    setMainReviewList(editedMainReviewList);
+    setEditing(false);
+    setSelectedReview(null);
+  };
+
   let curVisibleState = null;
   let buttonText = null;
 
-  if (selectedReview != null) {
+  if (editing) {
+    curVisibleState = (
+      <EditReviewForm
+        review={selectedReview}
+        onEditReview={handleEditingReview}
+      />
+    );
+    buttonText = "Return to Review List";
+  } else if (selectedReview != null) {
     curVisibleState = (
       <ReviewDetail
         review={selectedReview}
         onClickingDelete={handleDeletingReview}
+        onClickingEdit={handleEditClick}
       />
     );
     buttonText = "Return to Review List";
