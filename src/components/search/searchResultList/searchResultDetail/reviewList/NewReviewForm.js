@@ -1,5 +1,4 @@
 import React from "react";
-// import { v4 } from "uuid";
 import PropTypes from "prop-types";
 import ReusableForm from "./ReusableForm";
 
@@ -14,7 +13,6 @@ const NewReviewForm = (props) => {
       businessName: business.name,
       voteCount: 0,
       businessId: business.id,
-      // id: v4(),
     });
   };
   return (
