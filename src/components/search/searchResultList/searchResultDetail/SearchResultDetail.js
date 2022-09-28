@@ -30,11 +30,24 @@ const SearchResultDetail = (props) => {
     setSelectedReview(selection);
   };
 
+  const handleDeletingReview = (id) => {
+    const newMainReviewList = mainReviewList.filter(
+      (review) => review.id !== id
+    );
+    setMainReviewList(newMainReviewList);
+    setSelectedReview(null);
+  };
+
   let curVisibleState = null;
   let buttonText = null;
 
   if (selectedReview != null) {
-    curVisibleState = <ReviewDetail review={selectedReview} />;
+    curVisibleState = (
+      <ReviewDetail
+        review={selectedReview}
+        onClickingDelete={handleDeletingReview}
+      />
+    );
     buttonText = "Return to Review List";
   } else if (formVisibleOnPage) {
     curVisibleState = (
