@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 const SearchResultListControl = (props) => {
   const [selectedSearchResult, setSelectedSearchResult] = useState(null);
-  const businesses = props.businesses;
+  const { businesses } = props;
 
   const handleClick = () => {
     if (selectedSearchResult != null) {
