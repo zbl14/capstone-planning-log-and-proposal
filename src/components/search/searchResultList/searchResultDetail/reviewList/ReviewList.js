@@ -13,9 +13,10 @@ const ReviewList = (props) => {
           name={review.name}
           comment={review.comment}
           businessName={review.businessName}
+          businessId={review.businessId}
           voteCount={review.voteCount}
           id={review.id}
-          key={review.key}
+          key={review.id}
         />
       ))}
     </React.Fragment>

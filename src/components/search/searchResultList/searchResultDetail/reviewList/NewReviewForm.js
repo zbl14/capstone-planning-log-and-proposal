@@ -13,8 +13,8 @@ const NewReviewForm = (props) => {
       comment: event.target.comment.value,
       businessName: business.name,
       voteCount: 0,
-      id: business.id,
-      key: v4(),
+      businessId: business.id,
+      id: v4(),
     });
   };
   return (
