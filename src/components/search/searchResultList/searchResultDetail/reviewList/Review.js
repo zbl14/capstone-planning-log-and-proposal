@@ -5,11 +5,13 @@ const Review = (props) => {
   console.log(props);
   return (
     <React.Fragment>
-      <h3>Reviewer: {props.name}</h3>
-      <h4>
-        Comment about {props.businessName}: {props.comment}
-      </h4>
-      <h4>Vote Count: {props.voteCount}</h4>
+      <div onClick={() => props.whenReviewClicked(props.id)}>
+        <h3>Reviewer: {props.name}</h3>
+        <h4>
+          Comment about {props.businessName}: {props.comment}
+        </h4>
+        <h4>Vote Count: {props.voteCount}</h4>
+      </div>
     </React.Fragment>
   );
 };
@@ -19,6 +21,7 @@ Review.propsTypes = {
   businessName: PropTypes.string,
   comment: PropTypes.string,
   voteCount: PropTypes.number,
+  whenReviewClicked: PropTypes.func,
 };
 
 export default Review;

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReviewDetails = () => {
+const ReviewDetail = () => {
   return (
     <React.Fragment>
       <h1>review detail</h1>
@@ -8,4 +8,4 @@ const ReviewDetails = () => {
   );
 };
 
-export default ReviewDetails;
+export default ReviewDetail;

@@ -9,11 +9,12 @@ const ReviewList = (props) => {
       <hr />
       {props.reviewList.map((review) => (
         <Review
+          whenReviewClicked={props.onReviewSelection}
           name={review.name}
           comment={review.comment}
           businessName={review.businessName}
           voteCount={review.voteCount}
-          id={review.businessId}
+          id={review.id}
           key={review.key}
         />
       ))}
@@ -23,6 +24,7 @@ const ReviewList = (props) => {
 
 ReviewList.propTypes = {
   reviewList: PropTypes.array,
+  whenReviewClicked: PropTypes.func,
 };
 
 export default ReviewList;

@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import ReviewList from "./reviewList/ReviewList";
 import NewReviewForm from "./reviewList/NewReviewForm";
+import ReviewDetail from "./reviewList/ReviewDetail";
 
 const SearchResultDetail = (props) => {
   const business = props.business;
   const [formVisibleOnPage, setFormVisibleOnPage] = useState(false);
   const [mainReviewList, setMainReviewList] = useState([]);
+  const [selectedReview, setSelectedReview] = useState(null);
 
   const handleClick = () => {
-    setFormVisibleOnPage(!formVisibleOnPage);
+    if (selectedReview != null) {
+      setFormVisibleOnPage(false);
+      setSelectedReview(null);
+    } else {
+      setFormVisibleOnPage(!formVisibleOnPage);
+    }
   };
 
   const handleAddingNewReviewToList = (newReview) => {
@@ -17,10 +24,19 @@ const SearchResultDetail = (props) => {
     setFormVisibleOnPage(false);
   };
 
+  const handleChangingSelectedReview = (id) => {
+    console.log(id);
+    const selection = mainReviewList.filter((review) => review.id === id)[0];
+    setSelectedReview(selection);
+  };
+
   let curVisibleState = null;
   let buttonText = null;
 
-  if (formVisibleOnPage) {
+  if (selectedReview != null) {
+    curVisibleState = <ReviewDetail review={selectedReview} />;
+    buttonText = "Return to Review List";
+  } else if (formVisibleOnPage) {
     curVisibleState = (
       <NewReviewForm
         onNewReviewCreation={handleAddingNewReviewToList}
@@ -29,7 +45,12 @@ const SearchResultDetail = (props) => {
     );
     buttonText = "Return to Review List";
   } else {
-    curVisibleState = <ReviewList reviewList={mainReviewList} />;
+    curVisibleState = (
+      <ReviewList
+        reviewList={mainReviewList}
+        onReviewSelection={handleChangingSelectedReview}
+      />
+    );
     buttonText = "Add Review";
   }
 
