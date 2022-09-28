@@ -16,14 +16,19 @@ const SearchResultList = (props) => {
     <React.Fragment>
       {isLoaded ? <Map businesses={props.businesses} /> : null}
       <hr />
-      <Box sx={{ flexGrow: 1 }}>
+      <Box
+        sx={{
+          flexGrow: 1,
+        }}
+      >
         <Grid
           container
-          spacing={{ xs: 3, md: 2 }}
+          sx={{ justifyContent: "space-around" }}
+          rowSpacing={{ xs: 1, sm: 2, md: 4 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
           {Object.values(props.businesses).map((business, index) => (
-            <Grid xs={2} sm={4} md={3} key={index}>
+            <Grid xs={5} sm={4} md={4} lg={3} key={index}>
               <SearchResult
                 whenSearchResultClicked={props.onSearchResultSelection}
                 key={business.id}
