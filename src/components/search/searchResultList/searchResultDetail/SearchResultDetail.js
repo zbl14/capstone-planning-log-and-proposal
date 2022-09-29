@@ -3,7 +3,7 @@ import ReviewList from "./reviewList/ReviewList";
 import NewReviewForm from "./reviewList/NewReviewForm";
 import ReviewDetail from "./reviewList/ReviewDetail";
 import EditReviewForm from "./reviewList/EditReviewForm";
-import db from "./../../../firebase";
+import { db } from "./../../../firebase";
 import {
   collection,
   addDoc,
@@ -11,6 +11,7 @@ import {
   doc,
   updateDoc,
   deleteDoc,
+  increment,
 } from "firebase/firestore";
 
 const SearchResultDetail = (props) => {
@@ -76,6 +77,26 @@ const SearchResultDetail = (props) => {
     setSelectedReview(null);
   };
 
+  const handleUpvote = async (id) => {
+    await updateDoc(doc(db, "reviews", id), {
+      voteCount: increment(1),
+    });
+    setSelectedReview({
+      ...selectedReview,
+      voteCount: selectedReview.voteCount + 1,
+    });
+  };
+
+  const handleDownvote = async (id) => {
+    await updateDoc(doc(db, "reviews", id), {
+      voteCount: increment(-1),
+    });
+    setSelectedReview({
+      ...selectedReview,
+      voteCount: selectedReview.voteCount - 1,
+    });
+  };
+
   let curVisibleState = null;
   let buttonText = null;
 
@@ -95,6 +116,8 @@ const SearchResultDetail = (props) => {
         review={selectedReview}
         onClickingDelete={handleDeletingReview}
         onClickingEdit={handleEditClick}
+        onClickingUpvote={handleUpvote}
+        onClickingDownvote={handleDownvote}
       />
     );
     buttonText = "Return to Review List";
