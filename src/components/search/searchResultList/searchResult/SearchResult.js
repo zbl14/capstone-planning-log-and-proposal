@@ -96,7 +96,7 @@ const SearchResult = (props) => {
             </p>
             <div>
               <DoneIcon color="success" />
-              <p>{transactions}</p>
+              <div>{transactions}</div>
             </div>
             <div>{tags}</div>
           </CardContent>
