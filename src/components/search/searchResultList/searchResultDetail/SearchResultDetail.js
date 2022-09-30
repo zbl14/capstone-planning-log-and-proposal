@@ -12,6 +12,8 @@ import {
   updateDoc,
   deleteDoc,
   increment,
+  query,
+  where,
 } from "firebase/firestore";
 
 const SearchResultDetail = (props) => {
@@ -23,8 +25,12 @@ const SearchResultDetail = (props) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const unSubscribe = onSnapshot(
+    const queryByBusinessId = query(
       collection(db, "reviews"),
+      where("businessId", "==", business.id)
+    );
+    const unSubscribe = onSnapshot(
+      queryByBusinessId,
       (collectionSnapshot) => {
         const reviews = collectionSnapshot.docs.map((doc) => {
           return {
@@ -39,7 +45,7 @@ const SearchResultDetail = (props) => {
       }
     );
     return () => unSubscribe();
-  }, []);
+  }, [business.id]);
 
   const handleClick = () => {
     if (selectedReview != null) {
