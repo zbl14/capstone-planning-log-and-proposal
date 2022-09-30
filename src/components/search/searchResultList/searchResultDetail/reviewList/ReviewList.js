@@ -15,6 +15,7 @@ const ReviewList = (props) => {
           businessName={review.businessName}
           businessId={review.businessId}
           voteCount={review.voteCount}
+          formattedWaitTime={review.formattedWaitTime}
           id={review.id}
           key={review.id}
         />

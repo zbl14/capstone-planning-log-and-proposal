@@ -11,6 +11,10 @@ const Review = (props) => {
           Comment about {props.businessName}: {props.comment}
         </h4>
         <h4>Vote Count: {props.voteCount}</h4>
+        <p>
+          <em>{props.formattedWaitTime}</em>
+        </p>
+        <hr />
       </div>
     </React.Fragment>
   );
@@ -22,6 +26,7 @@ Review.propsTypes = {
   comment: PropTypes.string,
   voteCount: PropTypes.number,
   whenReviewClicked: PropTypes.func,
+  formattedWaitTime: PropTypes.string,
 };
 
 export default Review;

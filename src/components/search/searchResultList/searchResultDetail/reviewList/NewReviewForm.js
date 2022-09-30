@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReusableForm from "./ReusableForm";
+import { serverTimestamp } from "firebase/firestore";
 
 const NewReviewForm = (props) => {
   const { business } = props;
@@ -13,6 +14,7 @@ const NewReviewForm = (props) => {
       businessName: business.name,
       voteCount: 0,
       businessId: business.id,
+      timeOpen: serverTimestamp(),
     });
   };
   return (

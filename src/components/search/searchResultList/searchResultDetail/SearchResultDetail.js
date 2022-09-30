@@ -14,7 +14,9 @@ import {
   increment,
   query,
   where,
+  orderBy,
 } from "firebase/firestore";
+import { formatDistanceToNow } from "date-fns";
 
 const SearchResultDetail = (props) => {
   const { business } = props;
@@ -25,16 +27,44 @@ const SearchResultDetail = (props) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const queryByBusinessId = query(
+    function updateReviewElapsedWaitTime() {
+      const newMainReviewList = mainReviewList.map((review) => {
+        const newFormattedWaitTime = formatDistanceToNow(review.timeOpen);
+        return { ...review, formattedWaitTime: newFormattedWaitTime };
+      });
+      setMainReviewList(newMainReviewList);
+    }
+
+    const waitTimeUpdateTimer = setInterval(
+      () => updateReviewElapsedWaitTime(),
+      60000
+    );
+
+    return () => {
+      clearInterval(waitTimeUpdateTimer);
+    };
+  }, [mainReviewList]);
+
+  useEffect(() => {
+    const queryByBusinessIdByTimestamp = query(
       collection(db, "reviews"),
-      where("businessId", "==", business.id)
+      where("businessId", "==", business.id),
+      orderBy("timeOpen")
     );
     const unSubscribe = onSnapshot(
-      queryByBusinessId,
-      (collectionSnapshot) => {
-        const reviews = collectionSnapshot.docs.map((doc) => {
+      queryByBusinessIdByTimestamp,
+      (querySnapshot) => {
+        const reviews = querySnapshot.docs.map((doc) => {
+          const timeOpen = doc
+            .get("timeOpen", { serverTimestamps: "estimate" })
+            .toDate();
+          const jsDate = new Date(timeOpen);
           return {
             ...doc.data(),
+            timeOpen: jsDate,
+            formattedWaitTime: formatDistanceToNow(jsDate, {
+              addSuffix: true,
+            }),
             id: doc.id,
           };
         });
