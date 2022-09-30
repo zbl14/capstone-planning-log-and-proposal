@@ -3,7 +3,7 @@ import ReviewList from "./reviewList/ReviewList";
 import NewReviewForm from "./reviewList/NewReviewForm";
 import ReviewDetail from "./reviewList/ReviewDetail";
 import EditReviewForm from "./reviewList/EditReviewForm";
-import { db } from "./../../../firebase";
+import { db, auth } from "./../../../firebase";
 import {
   collection,
   addDoc,
@@ -97,55 +97,63 @@ const SearchResultDetail = (props) => {
     });
   };
 
-  let curVisibleState = null;
-  let buttonText = null;
+  if (auth.currentUser == null) {
+    return (
+      <React.Fragment>
+        <h1>You must be signed in to access the reviews.</h1>
+      </React.Fragment>
+    );
+  } else if (auth.currentUser != null) {
+    let curVisibleState = null;
+    let buttonText = null;
 
-  if (error) {
-    curVisibleState = <p>There was an error: {error}</p>;
-  } else if (editing) {
-    curVisibleState = (
-      <EditReviewForm
-        review={selectedReview}
-        onEditReview={handleEditingReview}
-      />
+    if (error) {
+      curVisibleState = <p>There was an error: {error}</p>;
+    } else if (editing) {
+      curVisibleState = (
+        <EditReviewForm
+          review={selectedReview}
+          onEditReview={handleEditingReview}
+        />
+      );
+      buttonText = "Return to Review List";
+    } else if (selectedReview != null) {
+      curVisibleState = (
+        <ReviewDetail
+          review={selectedReview}
+          onClickingDelete={handleDeletingReview}
+          onClickingEdit={handleEditClick}
+          onClickingUpvote={handleUpvote}
+          onClickingDownvote={handleDownvote}
+        />
+      );
+      buttonText = "Return to Review List";
+    } else if (formVisibleOnPage) {
+      curVisibleState = (
+        <NewReviewForm
+          onNewReviewCreation={handleAddingNewReviewToList}
+          business={business}
+        />
+      );
+      buttonText = "Return to Review List";
+    } else {
+      curVisibleState = (
+        <ReviewList
+          reviewList={mainReviewList}
+          onReviewSelection={handleChangingSelectedReview}
+        />
+      );
+      buttonText = "Add Review";
+    }
+
+    return (
+      <React.Fragment>
+        <h1>Reviews of {business.name}</h1>
+        {curVisibleState}
+        <button onClick={handleClick}>{buttonText}</button>
+      </React.Fragment>
     );
-    buttonText = "Return to Review List";
-  } else if (selectedReview != null) {
-    curVisibleState = (
-      <ReviewDetail
-        review={selectedReview}
-        onClickingDelete={handleDeletingReview}
-        onClickingEdit={handleEditClick}
-        onClickingUpvote={handleUpvote}
-        onClickingDownvote={handleDownvote}
-      />
-    );
-    buttonText = "Return to Review List";
-  } else if (formVisibleOnPage) {
-    curVisibleState = (
-      <NewReviewForm
-        onNewReviewCreation={handleAddingNewReviewToList}
-        business={business}
-      />
-    );
-    buttonText = "Return to Review List";
-  } else {
-    curVisibleState = (
-      <ReviewList
-        reviewList={mainReviewList}
-        onReviewSelection={handleChangingSelectedReview}
-      />
-    );
-    buttonText = "Add Review";
   }
-
-  return (
-    <React.Fragment>
-      <h1>Reviews of {business.name}</h1>
-      {curVisibleState}
-      <button onClick={handleClick}>{buttonText}</button>
-    </React.Fragment>
-  );
 };
 
 export default SearchResultDetail;
