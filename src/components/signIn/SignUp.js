@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "./../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,14 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    let interval = null;
+    if (navigateToLandingPage) {
+      interval = setInterval(() => navigate("/"), 5000);
+    }
+    return () => (interval ? clearInterval(interval) : null);
+  }, [navigateToLandingPage, navigate]);
+
   const doSignUp = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -18,19 +26,14 @@ const SignUp = () => {
         setSignUpSuccess(
           `You've successfully signed up, ${userCredential.user.email}!`
         );
+        setNavigateToLandingPage(true);
       })
-      .then(
-        setTimeout(() => {
-          setNavigateToLandingPage(true);
-        }, 5000)
-      )
       .catch((error) => {
         setSignUpSuccess(`There was an error signing up: ${error.message}!`);
       });
   };
-  return navigateToLandingPage ? (
-    navigate("/")
-  ) : (
+
+  return (
     <React.Fragment>
       <h1>Sign up</h1>
       {signUpSuccess}
