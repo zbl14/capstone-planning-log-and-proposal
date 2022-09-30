@@ -9,7 +9,7 @@ const TopNav = () => {
         <img src={logo} alt="logo" width="100px" />
       </Link>
       <button>
-        <Link to="/sign-in">Sign In</Link>
+        <Link to="/sign-in">Sign In / Sign Out</Link>
       </button>
       <button>
         <Link to="/sign-up">Sign Up</Link>
