@@ -8,7 +8,6 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   const search = (term, location, sortBy) => {
-    console.log(term, location, sortBy);
     const encodedTerm = encodeURI(term);
     const encodedLocation = encodeURI(location);
     const encodedSortBy = encodeURI(sortBy);

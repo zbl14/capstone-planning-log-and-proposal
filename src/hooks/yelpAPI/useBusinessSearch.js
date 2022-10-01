@@ -22,7 +22,6 @@ const useBusinessSearch = (term, location, sort_by) => {
   useEffect(() => {
     const get = (path, queryParams) => {
       const query = queryString.stringify(queryParams);
-      console.log(query);
       return fetch(`${API_BASE_URL}${path}?${query}`, {
         headers: {
           Authorization: `Bearer ${BEARER_TOKEN}`,
@@ -37,9 +36,7 @@ const useBusinessSearch = (term, location, sort_by) => {
         if (!response.ok) {
           throw new Error(`${response.status}: ${response.statusText}`);
         } else {
-          // console.log(response);
           const jsonResponse = await response.json();
-          // console.log(jsonResponse);
           const action = getBusinessSuccess(
             jsonResponse.businesses,
             jsonResponse.total

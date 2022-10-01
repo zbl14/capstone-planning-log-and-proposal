@@ -93,7 +93,6 @@ const SearchResultDetail = (props) => {
   };
 
   const handleChangingSelectedReview = (id) => {
-    console.log(id);
     const selection = mainReviewList.filter((review) => review.id === id)[0];
     setSelectedReview(selection);
   };

@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Review = (props) => {
-  console.log(props);
   return (
     <React.Fragment>
       <div onClick={() => props.whenReviewClicked(props.id)}>

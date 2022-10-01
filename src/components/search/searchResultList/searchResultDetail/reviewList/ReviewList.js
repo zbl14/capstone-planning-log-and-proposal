@@ -3,7 +3,6 @@ import Review from "./Review";
 import PropTypes from "prop-types";
 
 const ReviewList = (props) => {
-  console.log(props.reviewList.length);
   return props.reviewList.length === 0 ? (
     <h1>No review yet</h1>
   ) : (

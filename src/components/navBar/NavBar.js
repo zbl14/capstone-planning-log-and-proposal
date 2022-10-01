@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/foodie-alliance-logo.png";
 
 const NavBar = (props) => {
-  console.log(props.sortBy);
   return (
     <React.Fragment>
       <Link to="/">

@@ -5,7 +5,6 @@ import { serverTimestamp } from "firebase/firestore";
 
 const NewReviewForm = (props) => {
   const { business } = props;
-  console.log(business.id);
   const handleNewReviewFormSubmission = (event) => {
     event.preventDefault();
     props.onNewReviewCreation({

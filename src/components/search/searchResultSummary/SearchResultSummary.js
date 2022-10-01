@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const SearchResultSummary = (props) => {
-  console.log(props);
   const sortBy = (props) => {
     switch (props.sort_by) {
       case "best_match":
@@ -15,7 +14,6 @@ const SearchResultSummary = (props) => {
         throw new Error(`There is no sort matching ${props.sortBy}.`);
     }
   };
-  console.log(sortBy(props));
   return (
     <React.Fragment>
       <p>

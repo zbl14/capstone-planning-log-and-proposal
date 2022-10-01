@@ -47,7 +47,8 @@ const SignInSignOut = () => {
 
   return (
     <React.Fragment>
-      <h1>Sign In</h1>;{signInMsg}
+      <h1>Sign In</h1>
+      {signInMsg}
       <form onSubmit={doSignIn}>
         <input type="text" name="signinEmail" placeholder="email" />
         <input type="password" name="signinPassword" placeholder="Password" />

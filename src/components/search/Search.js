@@ -14,7 +14,6 @@ const Search = () => {
   const sortBy = params.get("sort_by");
   const [businesses, amountResults, searchParams, performSearch] =
     useBusinessSearch(term, locationParam, sortBy);
-  console.log(searchParams);
 
   if (!term || !locationParam) {
     navigate("/");
@@ -27,12 +26,9 @@ const Search = () => {
     navigate(
       `/search?find_desc=${encodedTerm}&find_loc=${encodedLocation}&sort_by=${encodedSortBy}`
     );
-    console.log("hi");
-    console.log({ term, location, sort_by });
     performSearch({ term, location, sort_by });
   };
-  console.log(searchParams.location);
-  console.log(searchParams.sort_by);
+
   return (
     <React.Fragment>
       <NavBar
