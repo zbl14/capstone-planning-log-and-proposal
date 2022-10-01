@@ -11,13 +11,18 @@ const initialState = {
   amountResults: 0,
 };
 
-const useBusinessSearch = (term, location) => {
+const useBusinessSearch = (term, location, sort_by) => {
   const [state, dispatch] = useReducer(useBusinessSearchReducer, initialState);
-  const [searchParams, setSearchParams] = useState({ term, location });
+  const [searchParams, setSearchParams] = useState({
+    term,
+    location,
+    sort_by,
+  });
 
   useEffect(() => {
     const get = (path, queryParams) => {
       const query = queryString.stringify(queryParams);
+      console.log(query);
       return fetch(`${API_BASE_URL}${path}?${query}`, {
         headers: {
           Authorization: `Bearer ${BEARER_TOKEN}`,
@@ -26,7 +31,6 @@ const useBusinessSearch = (term, location) => {
         },
       });
     };
-    // setBusinesses([]);
     const fetchData = async () => {
       try {
         const response = await get("/businesses/search", searchParams);

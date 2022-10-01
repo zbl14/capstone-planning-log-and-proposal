@@ -7,11 +7,13 @@ import TopNav from "../TopNav";
 const LandingPage = () => {
   const navigate = useNavigate();
 
-  const search = (term, location) => {
-    const urlEncodedTerm = encodeURI(term);
-    const urlEncodedLocation = encodeURI(location);
+  const search = (term, location, sortBy) => {
+    console.log(term, location, sortBy);
+    const encodedTerm = encodeURI(term);
+    const encodedLocation = encodeURI(location);
+    const encodedSortBy = encodeURI(sortBy);
     navigate(
-      `/search?find_desc=${urlEncodedTerm}&find_loc=${urlEncodedLocation}`
+      `/search?find_desc=${encodedTerm}&find_loc=${encodedLocation}&sort_by=${encodedSortBy}`
     );
   };
   return (
