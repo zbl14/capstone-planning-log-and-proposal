@@ -19,17 +19,17 @@ With trusted local business information, Food Alliance provides a platform solut
   - should be able to sort through restaurants using a filter ✅
 - Communitcate with Google Map API
   - should be able to locate the restaurants returned by the Yelp API and show them on a map ✅
-  - should be able to click a restaurant and have it open the address in a new tab
+  - should be able to click Get Direction and have it open in goole map in a new tab ✅
 - Forum system
   - should be able to create, read, update and delete a comment for restaurants ✅
   - should be able to upvote/downvote a comment ✅
 - Registration system
   - should be able to create a user account ✅
-  - allow all users to read and upvote/downvote comments
-  - allow registered users to creat, update and delete comments
+  - allow users to create, update，delete and upvote/downvote reviews ✅
 
 ## Stretch Goals
 
+- Allow all users to read reviews, only registed users can create, update review, only admin can delete reviews
 - Add autocompletion of addresses to the “Location” input
 - Allow user to click on different sorting options that can automatically requires the Yelp API ✅
 - Add dark mode

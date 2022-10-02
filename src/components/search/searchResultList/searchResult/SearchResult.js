@@ -57,6 +57,11 @@ const SearchResult = (props) => {
     setExpanded(!expanded);
   };
 
+  const handleClickingGetDirection = () => {
+    const url = `https://www.google.com/maps/dir/?api=1&destination=${business.name}`;
+    window.open(url);
+  };
+
   return (
     <Container>
       <Card
@@ -80,27 +85,31 @@ const SearchResult = (props) => {
             image={business.image_url}
             alt={business.name}
           />
-          <CardContent>
-            <div>
-              <Rating
-                name="rating"
-                value={business.rating}
-                precision={0.5}
-                // size="large"
-                readOnly
-              />
-              <p>{business.review_count} Reviews</p>
-            </div>
-            <p>
-              {business.location.city} · {business.price}
-            </p>
-            <div>
-              <DoneIcon color="success" />
-              <div>{transactions}</div>
-            </div>
-            <div>{tags}</div>
-          </CardContent>
         </CardActionArea>
+        <CardContent>
+          <div>
+            <Rating
+              name="rating"
+              value={business.rating}
+              precision={0.5}
+              // size="large"
+              readOnly
+            />
+            <p>{business.review_count} Reviews</p>
+          </div>
+          <p>
+            {business.location.city} · {business.price}
+          </p>
+          <div>
+            <DoneIcon color="success" />
+            <div>{transactions}</div>
+          </div>
+          <div>{tags}</div>
+          <CardActionArea onClick={() => handleClickingGetDirection()}>
+            <p>Get Direction</p>
+          </CardActionArea>
+        </CardContent>
+
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
