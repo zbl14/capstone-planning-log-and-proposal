@@ -1,10 +1,21 @@
 import React from "react";
 import SearchBar from "./searchBar/SearchBar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { BackgroundSlideshow } from "./backgroundSlider/BackGroundSlider";
 import TopNav from "../TopNav";
-import { Link } from "react-router-dom";
 import logo from "./../../assets/foodie-alliance-logo.png";
+import styled from "styled-components";
+
+const FoodieAllianceLogo = styled.img`
+  width: 180px;
+  margin: 50px 0;
+`;
+
+const SearchArea = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -20,18 +31,12 @@ const LandingPage = () => {
   return (
     <React.Fragment>
       <TopNav />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      <SearchArea>
         <Link to="/">
-          <img src={logo} alt="logo" width="100px" />
+          <FoodieAllianceLogo src={logo} alt="logo" />
         </Link>
         <SearchBar search={search} />
-      </div>
+      </SearchArea>
       <BackgroundSlideshow />
     </React.Fragment>
   );
