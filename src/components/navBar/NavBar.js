@@ -15,8 +15,12 @@ const NavBar = (props) => {
         sort_by={props.sortBy}
         search={props.search}
       />
-      <button>Sign In</button>
-      <button>Sign Up</button>
+      <button>
+        <Link to="/sign-in">Sign In / Sign Out</Link>
+      </button>
+      <button>
+        <Link to="/sign-up">Sign Up</Link>
+      </button>
       <hr />
     </React.Fragment>
   );
