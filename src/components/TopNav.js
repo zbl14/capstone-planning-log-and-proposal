@@ -1,13 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "./../assets/foodie-alliance-logo.png";
 
 const TopNav = () => {
   return (
     <React.Fragment>
-      <Link to="/">
-        <img src={logo} alt="logo" width="100px" />
-      </Link>
       <button>
         <a href="https://cors-anywhere.herokuapp.com/corsdemo" target="_blank">
           cors enable

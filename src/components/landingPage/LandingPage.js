@@ -3,6 +3,8 @@ import SearchBar from "./searchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
 import { BackgroundSlideshow } from "./backgroundSlider/BackGroundSlider";
 import TopNav from "../TopNav";
+import { Link } from "react-router-dom";
+import logo from "./../../assets/foodie-alliance-logo.png";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -25,6 +27,9 @@ const LandingPage = () => {
           alignItems: "center",
         }}
       >
+        <Link to="/">
+          <img src={logo} alt="logo" width="100px" />
+        </Link>
         <SearchBar search={search} />
       </div>
       <BackgroundSlideshow />
