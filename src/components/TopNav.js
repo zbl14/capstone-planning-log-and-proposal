@@ -9,6 +9,11 @@ const TopNav = () => {
         <img src={logo} alt="logo" width="100px" />
       </Link>
       <button>
+        <a href="https://cors-anywhere.herokuapp.com/corsdemo" target="_blank">
+          cors enable
+        </a>
+      </button>
+      <button>
         <Link to="/sign-in">Sign In / Sign Out</Link>
       </button>
       <button>
