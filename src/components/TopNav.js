@@ -84,7 +84,7 @@ const TopNav = () => {
           >
             About
           </NavLink>
-          <NavLink href="mailto:ifthereisoneday@gmail.com">Contact US</NavLink>
+          <NavLink href="mailto:ifthereisoneday@gmail.com">Contact Us</NavLink>
         </LeftWrapper>
         <RightWrapper>
           <NavButton>
