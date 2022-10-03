@@ -9,11 +9,18 @@ const TopNavStyledWrapper = styled.section`
   margin: 1.5rem 9rem;
 `;
 
-const LeftWrapper = styled.section``;
+const LeftWrapper = styled.section`
+  & > * {
+    margin-right: 1.5rem;
+  }
+`;
 
 const RightWrapper = styled.section`
   display: flex;
   align-items: center;
+  & > * {
+    margin-left: 1.5rem;
+  }
 `;
 
 const NavLink = styled.a`
@@ -25,7 +32,6 @@ const NavLink = styled.a`
   padding-left: 1em;
   padding-right: 1em;
   padding-top: calc(0.5em - 1px);
-  margin-left: 1.5rem;
   text-decoration: none;
   box-shadow: inset 0 0 0 0 black;
   padding: 0 0.25rem;
