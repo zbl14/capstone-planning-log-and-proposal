@@ -32,7 +32,7 @@ const SearchResultList = (props) => {
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
           {Object.values(props.businesses).map((business, index) => (
-            <Grid xs={5} sm={4} md={4} lg={3} key={index}>
+            <Grid xs={5} sm={4} md={4} lg={4} key={index}>
               <SearchResult
                 whenSearchResultClicked={props.onSearchResultSelection}
                 key={business.id}
