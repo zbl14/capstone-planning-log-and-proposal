@@ -15,12 +15,13 @@ import {
   Chip,
   CardActionArea,
   Container,
+  Box,
+  Stack,
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DoneIcon from "@mui/icons-material/Done";
-// import { red } from "@mui/material/colors";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -46,7 +47,7 @@ const SearchResult = (props) => {
   ));
 
   const transactions = business.transactions.map((transaction) => (
-    <p key={business.id + transaction}>{transaction}</p>
+    <span key={business.id + transaction}>{transaction} </span>
   ));
 
   const addressLines = business.location.display_address.map((addressLine) => (
@@ -87,23 +88,25 @@ const SearchResult = (props) => {
           />
         </CardActionArea>
         <CardContent>
-          <div>
+          <Box display="flex" alignItems="center">
             <Rating
               name="rating"
               value={business.rating}
               precision={0.5}
-              // size="large"
+              sx={{ marginRight: "0.5rem" }}
               readOnly
             />
             <p>{business.review_count} Reviews</p>
-          </div>
-          <p>
+          </Box>
+          <Box>
             {business.location.city} · {business.price}
-          </p>
-          <div>
+          </Box>
+          <Box display="flex" alignItems="center">
             <DoneIcon color="success" />
-            <div>{transactions}</div>
-          </div>
+            <Box m={1} sx={{ textTransform: "capitalize" }}>
+              {transactions}
+            </Box>
+          </Box>
           <div>{tags}</div>
           <CardActionArea onClick={() => handleClickingGetDirection()}>
             <p>Get Direction</p>
