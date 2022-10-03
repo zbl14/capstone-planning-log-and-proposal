@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import SearchResultList from "./SearchResultList";
 import SearchResultDetail from "./searchResultDetail/SearchResultDetail";
 import PropTypes from "prop-types";
+import VerticalAlignTopIcon from "@mui/icons-material/VerticalAlignTop";
+import { red } from "@mui/material/colors";
 
 const SearchResultListControl = (props) => {
   const [selectedSearchResult, setSelectedSearchResult] = useState(null);
@@ -27,11 +29,11 @@ const SearchResultListControl = (props) => {
   };
 
   let curVisibleState;
-  let buttonText = null;
+  let button = null;
 
   if (selectedSearchResult != null) {
     curVisibleState = <SearchResultDetail business={selectedSearchResult} />;
-    buttonText = "Return to businesses list";
+    button = <button onClick={handleClick}>Return to businesses list</button>;
   } else {
     curVisibleState = (
       <SearchResultList
@@ -39,14 +41,25 @@ const SearchResultListControl = (props) => {
         onSearchResultSelection={handleChangingSelectedSearchResult}
       />
     );
-    buttonText = "Back To Top";
+    button = (
+      <VerticalAlignTopIcon
+        onClick={handleClick}
+        fontSize="large"
+        sx={{
+          bgcolor: red[500],
+          color: "white",
+          border: 1,
+          borderColor: "black",
+          margin: "1.5rem",
+        }}
+      />
+    );
   }
 
   return (
     <React.Fragment>
       {curVisibleState}
-      <button onClick={handleClick}>{buttonText}</button>
-      <hr />
+      {button}
     </React.Fragment>
   );
 };
