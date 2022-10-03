@@ -3,7 +3,7 @@ import SearchResult from "./searchResult/SearchResult";
 import PropTypes from "prop-types";
 import { useLoadScript } from "@react-google-maps/api";
 import Map from "../../map/Map";
-import Box from "@mui/material/Box";
+import { Box, LinearProgress } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
 const SearchResultList = (props) => {
@@ -12,10 +12,14 @@ const SearchResultList = (props) => {
     version: "weekly",
   });
 
-  return (
-    <React.Fragment>
-      {isLoaded ? <Map businesses={props.businesses} /> : null}
-      <hr />
+  let searchResultlist = (
+    <Box sx={{ width: "100%" }}>
+      <LinearProgress />
+    </Box>
+  );
+
+  if (props.businesses && props.businesses.length > 0) {
+    searchResultlist = (
       <Box
         sx={{
           flexGrow: 1,
@@ -38,6 +42,14 @@ const SearchResultList = (props) => {
           ))}
         </Grid>
       </Box>
+    );
+  }
+
+  return (
+    <React.Fragment>
+      {isLoaded ? <Map businesses={props.businesses} /> : null}
+      <hr />
+      {searchResultlist}
     </React.Fragment>
   );
 };
