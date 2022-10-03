@@ -10,6 +10,8 @@ const SearchResultListControl = (props) => {
   const handleClick = () => {
     if (selectedSearchResult != null) {
       setSelectedSearchResult(null);
+    } else {
+      handleBackToTop();
     }
   };
 
@@ -18,6 +20,10 @@ const SearchResultListControl = (props) => {
       const selection = businesses.filter((business) => business.id === id)[0];
       setSelectedSearchResult(selection);
     }
+  };
+
+  const handleBackToTop = () => {
+    document.documentElement.scrollTop = 0;
   };
 
   let curVisibleState;
@@ -33,7 +39,7 @@ const SearchResultListControl = (props) => {
         onSearchResultSelection={handleChangingSelectedSearchResult}
       />
     );
-    buttonText = "home";
+    buttonText = "Back To Top";
   }
 
   return (
