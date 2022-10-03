@@ -82,10 +82,14 @@ const TopNav = () => {
         </LeftWrapper>
         <RightWrapper>
           <NavButton>
-            <Link to="/sign-in">Sign In / Sign Out</Link>
+            <Link to="/sign-in" style={{ textDecoration: "none" }}>
+              Sign In / Sign Out
+            </Link>
           </NavButton>
           <NavButton>
-            <Link to="/sign-up">Sign Up</Link>
+            <Link to="/sign-up" style={{ textDecoration: "none" }}>
+              Sign Up
+            </Link>
           </NavButton>
         </RightWrapper>
       </TopNavStyledWrapper>
