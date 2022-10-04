@@ -37,6 +37,7 @@ With trusted local business information, Food Alliance provides a platform solut
 - Add visited validation system
 - Create a mobile version
 - Host my own instance of CORS Anywhere
+- User can only vote on a review once
 - Well documented
 
 ## Tools, Frameworks, Libraries, APIs, etc.
