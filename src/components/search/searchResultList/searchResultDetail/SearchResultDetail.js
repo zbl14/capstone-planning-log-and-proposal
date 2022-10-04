@@ -33,7 +33,9 @@ const SearchResultDetail = (props) => {
   useEffect(() => {
     function updateReviewElapsedWaitTime() {
       const newMainReviewList = mainReviewList.map((review) => {
-        const newFormattedWaitTime = formatDistanceToNow(review.timeOpen);
+        const newFormattedWaitTime = formatDistanceToNow(review.timeOpen, {
+          addSuffix: true,
+        });
         return { ...review, formattedWaitTime: newFormattedWaitTime };
       });
       setMainReviewList(newMainReviewList);
