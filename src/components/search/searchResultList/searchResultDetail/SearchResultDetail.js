@@ -17,6 +17,7 @@ import {
   orderBy,
 } from "firebase/firestore";
 import { formatDistanceToNow } from "date-fns";
+import { Container } from "@mui/material";
 
 const SearchResultDetail = (props) => {
   const { business } = props;
@@ -183,9 +184,11 @@ const SearchResultDetail = (props) => {
 
     return (
       <React.Fragment>
-        <h1>Reviews of {business.name}</h1>
-        {curVisibleState}
-        <button onClick={handleClick}>{buttonText}</button>
+        <Container>
+          <h1>Reviews of {business.name}</h1>
+          {curVisibleState}
+          <button onClick={handleClick}>{buttonText}</button>
+        </Container>
       </React.Fragment>
     );
   }
