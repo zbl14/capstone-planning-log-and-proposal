@@ -1,5 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Button from "@mui/material/Button";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
+import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 
 const ReviewDetail = (props) => {
   const { review, onClickingDelete, onClickingUpvote, onClickingDownvote } =
@@ -9,10 +14,18 @@ const ReviewDetail = (props) => {
       <h1>Reveiw detail</h1>
       <h3>Comment: {review.comment}</h3>
       <h4>Vote Count: {review.voteCount}</h4>
-      <button onClick={() => onClickingUpvote(review.id)}>Upvote</button>
-      <button onClick={() => onClickingDownvote(review.id)}>Downvote</button>
-      <button onClick={props.onClickingEdit}>Revise Review</button>
-      <button onClick={() => onClickingDelete(review.id)}>Delete Review</button>
+      <Button onClick={() => onClickingUpvote(review.id)} title="Like">
+        <ThumbUpAltIcon />
+      </Button>
+      <Button onClick={() => onClickingDownvote(review.id)} title="Dislike">
+        <ThumbDownAltIcon />
+      </Button>
+      <Button onClick={props.onClickingEdit} title="Revise Review">
+        <EditIcon color="success" />
+      </Button>
+      <Button onClick={() => onClickingDelete(review.id)} title="Delete Review">
+        <DeleteForeverIcon color="error" />
+      </Button>
     </React.Fragment>
   );
 };
