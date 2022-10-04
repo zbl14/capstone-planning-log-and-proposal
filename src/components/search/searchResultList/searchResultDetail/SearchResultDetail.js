@@ -192,7 +192,7 @@ const SearchResultDetail = (props) => {
     return (
       <React.Fragment>
         <Container>
-          <h1>Reviews of {business.name}</h1>
+          <h1>{business.name}</h1>
           {curVisibleState}
           <Button
             onClick={handleClick}
