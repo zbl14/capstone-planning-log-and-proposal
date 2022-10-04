@@ -169,6 +169,7 @@ const SearchResultDetail = (props) => {
         />
       );
       buttonText = "Return to Review List";
+      button = <ListAltIcon fontSize="large" />;
     } else if (formVisibleOnPage) {
       curVisibleState = (
         <NewReviewForm
@@ -194,11 +195,7 @@ const SearchResultDetail = (props) => {
         <Container>
           <h1>{business.name}</h1>
           {curVisibleState}
-          <Button
-            onClick={handleClick}
-            title={buttonText}
-            // style={{ border: "none", padding: "0", background: "none" }}
-          >
+          <Button onClick={handleClick} title={buttonText}>
             {button}
           </Button>
         </Container>
