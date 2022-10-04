@@ -1,18 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Avatar, Box, Typography } from "@mui/material";
 
 const Review = (props) => {
   return (
     <React.Fragment>
       <div onClick={() => props.whenReviewClicked(props.id)}>
-        <h3>Reviewer: {props.name}</h3>
-        <h4>
-          Comment about {props.businessName}: {props.comment}
-        </h4>
-        <h4>Vote Count: {props.voteCount}</h4>
-        <p>
+        <Box display="flex" alignItems="center">
+          <Avatar sx={{ mr: 3 }} alt={props.name} src="#" />
+          <h2 style={{ margin: 0 }}>{props.name}</h2>
+        </Box>
+        <Typography variant="subtitle1">
           <em>{props.formattedWaitTime}</em>
-        </p>
+        </Typography>
+        <Typography sx={{ fontSize: "24px" }}>{props.comment}</Typography>
+        <Typography variant="subtitle2" sx={{ mt: 1 }}>
+          Vote#: {props.voteCount}
+        </Typography>
         <hr />
       </div>
     </React.Fragment>
