@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
-import EditIcon from "@mui/icons-material/Edit";
+import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
@@ -21,7 +21,7 @@ const ReviewDetail = (props) => {
         <ThumbDownAltIcon />
       </Button>
       <Button onClick={props.onClickingEdit} title="Revise Review">
-        <EditIcon color="success" />
+        <DriveFileRenameOutlineIcon color="success" />
       </Button>
       <Button onClick={() => onClickingDelete(review.id)} title="Delete Review">
         <DeleteForeverIcon color="error" />
