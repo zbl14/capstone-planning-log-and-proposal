@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "@mui/material/Button";
+import { Button, Box, Avatar, Typography } from "@mui/material";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
@@ -11,9 +11,17 @@ const ReviewDetail = (props) => {
     props;
   return (
     <React.Fragment>
-      <h1>Reveiw detail</h1>
-      <h3>Comment: {review.comment}</h3>
-      <h4>Vote Count: {review.voteCount}</h4>
+      <Box display="flex" alignItems="center">
+        <Avatar sx={{ mr: 3 }} alt={review.name} src="#" />
+        <h2 style={{ margin: 0 }}>{review.name}</h2>
+      </Box>
+      <Typography variant="subtitle1">
+        <em>{review.formattedWaitTime}</em>
+      </Typography>
+      <Typography sx={{ fontSize: "24px" }}>{review.comment}</Typography>
+      <Typography variant="subtitle2" sx={{ mt: 1 }}>
+        Vote#: {review.voteCount}
+      </Typography>
       <Button onClick={() => onClickingUpvote(review.id)} title="Like">
         <ThumbUpAltIcon fontSize="large" />
       </Button>
