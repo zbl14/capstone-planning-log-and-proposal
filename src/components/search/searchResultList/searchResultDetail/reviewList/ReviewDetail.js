@@ -15,16 +15,16 @@ const ReviewDetail = (props) => {
       <h3>Comment: {review.comment}</h3>
       <h4>Vote Count: {review.voteCount}</h4>
       <Button onClick={() => onClickingUpvote(review.id)} title="Like">
-        <ThumbUpAltIcon />
+        <ThumbUpAltIcon fontSize="large" />
       </Button>
       <Button onClick={() => onClickingDownvote(review.id)} title="Dislike">
-        <ThumbDownAltIcon />
+        <ThumbDownAltIcon fontSize="large" />
       </Button>
       <Button onClick={props.onClickingEdit} title="Revise Review">
-        <DriveFileRenameOutlineIcon color="success" />
+        <DriveFileRenameOutlineIcon color="success" fontSize="large" />
       </Button>
       <Button onClick={() => onClickingDelete(review.id)} title="Delete Review">
-        <DeleteForeverIcon color="error" />
+        <DeleteForeverIcon color="error" fontSize="large" />
       </Button>
     </React.Fragment>
   );
