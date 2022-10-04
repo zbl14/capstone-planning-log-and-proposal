@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Button } from "@mui/material";
 
 const ReusableForm = (props) => {
   return (
@@ -7,7 +8,9 @@ const ReusableForm = (props) => {
       <form onSubmit={props.formSubmissionHandler}>
         <input type="text" name="name" placeholder="Your Name" />
         <textarea name="comment" placeholder="Leave a review" />
-        <button type="submit">{props.buttonText}</button>
+        <Button type="submit" title={props.buttonText}>
+          {props.button}
+        </Button>
       </form>
     </React.Fragment>
   );

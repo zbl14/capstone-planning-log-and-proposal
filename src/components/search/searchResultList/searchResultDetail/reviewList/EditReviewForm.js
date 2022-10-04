@@ -1,6 +1,7 @@
 import React from "react";
 import ReusableForm from "./ReusableForm";
 import PropTypes from "prop-types";
+import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 
 const EditReviewForm = (props) => {
   const { review } = props;
@@ -20,6 +21,7 @@ const EditReviewForm = (props) => {
       <ReusableForm
         formSubmissionHandler={handleEditReviewFormSubmission}
         buttonText="Revise Review"
+        button=<DriveFileRenameOutlineIcon color="success" fontSize="large" />
       />
     </React.Fragment>
   );

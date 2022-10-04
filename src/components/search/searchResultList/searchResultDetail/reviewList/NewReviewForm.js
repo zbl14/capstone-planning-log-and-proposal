@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ReusableForm from "./ReusableForm";
 import { serverTimestamp } from "firebase/firestore";
+import CreateIcon from "@mui/icons-material/Create";
 
 const NewReviewForm = (props) => {
   const { business } = props;
@@ -21,6 +22,7 @@ const NewReviewForm = (props) => {
       <ReusableForm
         formSubmissionHandler={handleNewReviewFormSubmission}
         buttonText="Add a review"
+        button=<CreateIcon fontSize="large" />
       />
     </React.Fragment>
   );

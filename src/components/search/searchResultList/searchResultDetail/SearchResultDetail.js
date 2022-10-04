@@ -18,6 +18,9 @@ import {
 } from "firebase/firestore";
 import { formatDistanceToNow } from "date-fns";
 import { Container } from "@mui/material";
+import Button from "@mui/material/Button";
+import CreateIcon from "@mui/icons-material/Create";
+import ListAltIcon from "@mui/icons-material/ListAlt";
 
 const SearchResultDetail = (props) => {
   const { business } = props;
@@ -142,6 +145,7 @@ const SearchResultDetail = (props) => {
   } else if (auth.currentUser != null) {
     let curVisibleState = null;
     let buttonText = null;
+    let button = null;
 
     if (error) {
       curVisibleState = <p>There was an error: {error}</p>;
@@ -153,6 +157,7 @@ const SearchResultDetail = (props) => {
         />
       );
       buttonText = "Return to Review List";
+      button = <ListAltIcon fontSize="large" />;
     } else if (selectedReview != null) {
       curVisibleState = (
         <ReviewDetail
@@ -172,6 +177,7 @@ const SearchResultDetail = (props) => {
         />
       );
       buttonText = "Return to Review List";
+      button = <ListAltIcon fontSize="large" />;
     } else {
       curVisibleState = (
         <ReviewList
@@ -179,7 +185,8 @@ const SearchResultDetail = (props) => {
           onReviewSelection={handleChangingSelectedReview}
         />
       );
-      buttonText = "Add Review";
+      buttonText = "New Review";
+      button = <CreateIcon fontSize="large" />;
     }
 
     return (
@@ -187,7 +194,13 @@ const SearchResultDetail = (props) => {
         <Container>
           <h1>Reviews of {business.name}</h1>
           {curVisibleState}
-          <button onClick={handleClick}>{buttonText}</button>
+          <Button
+            onClick={handleClick}
+            title={buttonText}
+            // style={{ border: "none", padding: "0", background: "none" }}
+          >
+            {button}
+          </Button>
         </Container>
       </React.Fragment>
     );
