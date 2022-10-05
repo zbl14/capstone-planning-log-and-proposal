@@ -4,6 +4,8 @@ import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
 import { BackgroundSlideshow } from "./../landingPage/backgroundSlider/BackGroundSlider";
 import styled from "styled-components";
+import logo from "./../../assets/foodie-alliance-logo.png";
+import { FoodieAllianceLogo } from "./../landingPage/LandingPage";
 
 const Container = styled.section`
   height: 100vh;
@@ -17,24 +19,28 @@ const FormContainer = styled.section`
   position: relative;
   background: radial-gradient(#e9a2a2, #dd6565, #eb4040, #ec1010);
   border-radius: 15px;
-  padding: 30px 40px;
+  padding: 0px 40px 20px 40px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Title = styled.h1`
-  margin-bottom: 30px;
+  margin-bottom: 0px;
+  margin-top: 0px;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
-  font-size: 26px;
+  font-size: 22px;
   letter-spacing: 2px;
 `;
 
 const FormControl = styled.section`
   position: relative;
   width: 350px;
-  margin: 20px 0 20px;
+  margin: 18px 0 18px;
   color: #fff;
-  font-size: 15px;
+  font-size: 12px;
 `;
 
 const Label = styled.label`
@@ -48,7 +54,7 @@ const Span = styled.span`
   display: inline-block;
   min-width: 5px;
   transition: all 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
-  font-size: 22px;
+  font-size: 15px;
 `;
 
 const Input = styled.input`
@@ -58,16 +64,16 @@ const Input = styled.input`
   background-color: transparent;
   outline: none;
   border: none;
-  border-bottom: 4px solid #fff;
-  font-size: 18px;
-  padding: 15px 0;
+  border-bottom: 3px solid #fff;
+  font-size: 15px;
+  padding: 10px 0;
   &:focus,
   :valid {
     color: #2396ef;
     border-color: #2396ef;
   }
   &:focus + ${Label} ${Span}, :valid + ${Label} ${Span} {
-    transform: translateY(-34px);
+    transform: translateY(-32px);
     color: #2396ef;
   }
 `;
@@ -75,7 +81,7 @@ const Input = styled.input`
 const Button = styled.button`
   display: inline-block;
   width: 100%;
-  padding: 16px 18px;
+  padding: 14px 15px;
   outline: none;
   border-radius: 5px;
   border: 1px solid #a381f3;
@@ -83,11 +89,15 @@ const Button = styled.button`
   cursor: pointer;
   color: #fff;
   text-transform: capitalize;
-  font-size: 18px;
+  font-size: 15px;
   &:hover {
     border-color: #ad75e0;
     background: linear-gradient(90deg, #a15ce2 20%, #b10ee2 80%);
   }
+`;
+
+const PTag = styled.p`
+  margin: 0;
 `;
 
 const SignInSignOut = () => {
@@ -138,6 +148,9 @@ const SignInSignOut = () => {
     <React.Fragment>
       <Container>
         <FormContainer>
+          <Link to="/">
+            <FoodieAllianceLogo src={logo} alt="logo" />
+          </Link>
           <Title>please login</Title>
           <FormControl>{signInMsg}</FormControl>
           <form onSubmit={doSignIn}>
@@ -157,17 +170,21 @@ const SignInSignOut = () => {
               <Button type="submit">Sign in</Button>
             </FormControl>
             <FormControl>
-              <div style={{ display: "flex", justifyContent: "space-around" }}>
-                <p>Don't have an account?</p>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  margin: "0",
+                }}
+              >
+                <PTag>Don't have an account?</PTag>
                 <Link to="/sign-up" style={{ textDecoration: "none" }}>
-                  <p>Register</p>
+                  <PTag>Register</PTag>
                 </Link>
               </div>
             </FormControl>
           </form>
-          <Title>Sign Out</Title>
           <FormControl>{signOutMsg}</FormControl>
-          <br />
           <Button onClick={doSignOut}>Sign out</Button>
         </FormContainer>
       </Container>
