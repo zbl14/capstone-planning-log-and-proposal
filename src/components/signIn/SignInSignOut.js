@@ -7,7 +7,7 @@ import styled from "styled-components";
 import logo from "./../../assets/foodie-alliance-logo.png";
 import { FoodieAllianceLogo } from "./../landingPage/LandingPage";
 
-const Container = styled.section`
+export const Container = styled.section`
   height: 100vh;
   overflow: hidden;
   display: flex;
@@ -15,7 +15,7 @@ const Container = styled.section`
   align-items: center;
 `;
 
-const FormContainer = styled.section`
+export const FormContainer = styled.section`
   position: relative;
   background: radial-gradient(#e9a2a2, #dd6565, #eb4040, #ec1010);
   border-radius: 15px;
@@ -35,7 +35,7 @@ const Title = styled.h1`
   letter-spacing: 2px;
 `;
 
-const FormControl = styled.section`
+export const FormControl = styled.section`
   position: relative;
   width: 350px;
   margin: 18px 0 18px;
@@ -43,21 +43,21 @@ const FormControl = styled.section`
   font-size: 12px;
 `;
 
-const Label = styled.label`
+export const Label = styled.label`
   position: absolute;
   left: 0;
   top: 15px;
   color: #fff;
 `;
 
-const Span = styled.span`
+export const Span = styled.span`
   display: inline-block;
   min-width: 5px;
   transition: all 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
   font-size: 15px;
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
   display: block;
   width: 100%;
   color: #fff;
@@ -78,7 +78,7 @@ const Input = styled.input`
   }
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   display: inline-block;
   width: 100%;
   padding: 14px 15px;
