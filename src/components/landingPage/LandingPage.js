@@ -17,7 +17,7 @@ const SearchArea = styled.section`
   align-items: center;
 `;
 
-const LandingPage = () => {
+export const LandingPage = () => {
   const navigate = useNavigate();
 
   const search = (term, location, sortBy) => {
@@ -41,5 +41,3 @@ const LandingPage = () => {
     </React.Fragment>
   );
 };
-
-export default LandingPage;

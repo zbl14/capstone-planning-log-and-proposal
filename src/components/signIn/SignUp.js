@@ -3,7 +3,7 @@ import { auth } from "./../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-const SignUp = () => {
+export const SignUp = () => {
   const [signUpSuccess, setSignUpSuccess] = useState(null);
   const [navigateToLandingPage, setNavigateToLandingPage] = useState(false);
 
@@ -45,5 +45,3 @@ const SignUp = () => {
     </React.Fragment>
   );
 };
-
-export default SignUp;
