@@ -100,7 +100,7 @@ const SignInSignOut = () => {
   useEffect(() => {
     let interval = null;
     if (navigateToLandingPage) {
-      interval = setInterval(() => navigate("/"), 5000);
+      interval = setInterval(() => navigate("/"), 3000);
     }
     return () => (interval ? clearInterval(interval) : null);
   }, [navigateToLandingPage, navigate]);
@@ -112,7 +112,7 @@ const SignInSignOut = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setSignInMsg(
-          `You've successfully signed in as ${userCredential.user.email}!`
+          `You've successfully signed in as ${userCredential.user.email}! Redirect to home page after 3 seconds.`
         );
         setNavigateToLandingPage(true);
       })
@@ -124,7 +124,9 @@ const SignInSignOut = () => {
   function doSignOut() {
     signOut(auth)
       .then(function () {
-        setSignOutMsg("You have successfully signed out!");
+        setSignOutMsg(
+          "You have successfully signed out! Redirect to home page after 3 seconds."
+        );
         setNavigateToLandingPage(true);
       })
       .catch(function (error) {
@@ -137,7 +139,7 @@ const SignInSignOut = () => {
       <Container>
         <FormContainer>
           <Title>please login</Title>
-          {signInMsg}
+          <FormControl>{signInMsg}</FormControl>
           <form onSubmit={doSignIn}>
             <FormControl>
               <Input type="text" name="signinEmail" required />
@@ -164,7 +166,7 @@ const SignInSignOut = () => {
             </FormControl>
           </form>
           <Title>Sign Out</Title>
-          {signOutMsg}
+          <FormControl>{signOutMsg}</FormControl>
           <br />
           <Button onClick={doSignOut}>Sign out</Button>
         </FormContainer>
