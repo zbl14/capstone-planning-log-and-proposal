@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { LandingPage } from "./landingPage/LandingPage";
 import Search from "./search/Search";
 import { SignUp } from "./signIn/SignUp";
-import SignInSignOut from "./signIn/SignInSignOut";
+import { SignInSignOut } from "./signIn/SignInSignOut";
 
 function App() {
   return (

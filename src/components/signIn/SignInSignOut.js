@@ -100,7 +100,7 @@ const PTag = styled.p`
   margin: 0;
 `;
 
-const SignInSignOut = () => {
+export const SignInSignOut = () => {
   const [signInMsg, setSignInMsg] = useState(null);
   const [signOutMsg, setSignOutMsg] = useState(null);
   const [navigateToLandingPage, setNavigateToLandingPage] = useState(false);
@@ -192,5 +192,3 @@ const SignInSignOut = () => {
     </React.Fragment>
   );
 };
-
-export default SignInSignOut;
