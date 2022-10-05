@@ -6,9 +6,9 @@ import TopNav from "../TopNav";
 import logo from "./../../assets/foodie-alliance-logo.png";
 import styled from "styled-components";
 
-const FoodieAllianceLogo = styled.img`
-  width: 180px;
-  margin: 50px 0;
+export const FoodieAllianceLogo = styled.img`
+  width: 150px;
+  margin: 30px 0;
 `;
 
 const SearchArea = styled.section`

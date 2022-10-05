@@ -13,7 +13,7 @@ const NavBarWrapper = styled.section`
 `;
 
 const NavButton = styled.button`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   margin-left: 1.5rem;
   background-color: white;
@@ -35,7 +35,7 @@ const NavBar = (props) => {
     <React.Fragment>
       <NavBarWrapper>
         <Link to="/">
-          <img src={logo} alt="logo" width="75px" />
+          <img src={logo} alt="logo" width="70px" />
         </Link>
         <SearchBar
           term={props.term}

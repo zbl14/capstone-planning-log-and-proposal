@@ -15,7 +15,7 @@ const SearchSummary = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1050px;
 `;
 
 const SummaryText = styled.p`

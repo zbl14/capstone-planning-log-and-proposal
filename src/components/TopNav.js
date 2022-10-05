@@ -24,7 +24,7 @@ const RightWrapper = styled.section`
 `;
 
 const NavLink = styled.a`
-  font-size: 20px;
+  font-size: 16px;
   color: #fff;
   font-weight: 500;
   cursor: pointer;
@@ -44,7 +44,7 @@ const NavLink = styled.a`
 `;
 
 const NavButton = styled.button`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   margin-left: 1.5rem;
   background-color: white;
