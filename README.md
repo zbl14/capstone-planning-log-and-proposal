@@ -7,7 +7,7 @@
 #### <u>Table of Contents</u>
 
 - <a href="#description">Description</a>
-- <a href="#technologies-used">Technologies Usedh</a>
+- <a href="#technologies-used">Technologies Used</a>
 - <a href="#setupinstallation-requirements">Setup/Installation Requirements</a>
   - <a href="#getting-the-repo">Getting the repo</a>
   - <a href="#installing-dependencies">Installing Dependencies</a>
