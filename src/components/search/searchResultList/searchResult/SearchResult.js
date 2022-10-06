@@ -142,7 +142,7 @@ const SearchResult = (props) => {
             <Typography paragraph>
               Business Phone: {business.display_phone}
             </Typography>
-            <Typography paragraph>Busines Address: {addressLines}</Typography>
+            <div>Busines Address: {addressLines}</div>
           </CardContent>
         </Collapse>
       </Card>
