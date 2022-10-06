@@ -116,6 +116,33 @@ With trusted local business information, Food Alliance provides a platform solut
 
 Zhibin Liang <ifthereisoneday@gmail.com>
 
+### MVP
+
+- Communicate with Yelp API
+  - should be able to view a list of restaurants returned by the Yelp API ✅
+  - should be able to sort through restaurants using a filter ✅
+- Communicate with Google Map API
+  - should be able to locate the restaurants returned by the Yelp API and show them on a map ✅
+  - should be able to click Get Direction and have it opened in google map in a new tab ✅
+- Forum system
+  - should be able to create, read, update and delete a comment for restaurants ✅
+  - should be able to upvote/downvote a comment ✅
+- Registration system
+  - should be able to create a user account ✅
+  - allow users to create, update，delete and upvote/downvote reviews ✅
+
+### Stretch Goals
+
+- Allow all users to read reviews, only registered users can create, update review, only admin can delete reviews
+- Add autocompletion of addresses to the “Location” input
+- Allow user to click on different sorting options that can automatically requires the Yelp API ✅
+- Add dark mode
+- Add food order system
+- Add visited validation system
+- Create a mobile version
+- Host my own instance of CORS Anywhere
+- User can only vote on a review once
+
 ### Capstone Research & Planning Log
 
 **ALL TIMES ARE IN PST**
