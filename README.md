@@ -4,6 +4,27 @@
 
 #### By Zhibin Liang
 
+#### <u>Table of Contents</u>
+
+- <a href="#description">Description</a>
+- <a href="#technologies-used">Technologies Usedh</a>
+- <a href="#setupinstallation-requirements">Setup/Installation Requirements</a>
+  - <a href="#getting-the-repo">Getting the repo</a>
+  - <a href="#installing-dependencies">Installing Dependencies</a>
+  - <a href="#adding-api-key">Adding API key</a>
+  - <a href="#adding-firebase-config">Adding Firebase config</a>
+- <a href="#known-bugs">Known Bugs</a>
+- <a href="#license">License</a>
+- <a href="#contact-information">Contact Information</a>
+- <a href="#appendix">Appendix</a>
+  - <a href="#mvp">MVP</a>
+  - <a href="#stretch-goals">Stretch Goals</a>
+  - <a href="#capstone-research--planning-log">Capstone Research & Planning Log</a>
+
+## Description
+
+With trusted local business information, Food Alliance provides a platform solution that allows users to search, locate and post reviews about their visited restaurants.
+
 ## Technologies Used
 
 - [React](https://reactjs.org/)
@@ -19,10 +40,6 @@
 - [query-string](https://github.com/sindresorhus/query-string)
 - [styled-components](https://styled-components.com/)
 - [Material UI](https://mui.com/)
-
-## Description
-
-With trusted local business information, Food Alliance provides a platform solution that allows users to search, locate and post reviews about their visited restaurants.
 
 ## Setup/Installation Requirements
 
@@ -62,7 +79,7 @@ With trusted local business information, Food Alliance provides a platform solut
     REACT_APP_MAP_KEY=<Your Google Map apiKey>
     ```
 
-### Adding firebase config
+### Adding Firebase config
 
 - This project does not include the firebase API information you need, you must create your own in order to use this app locally
 
@@ -115,6 +132,8 @@ With trusted local business information, Food Alliance provides a platform solut
 ## Contact Information
 
 Zhibin Liang <ifthereisoneday@gmail.com>
+
+## Appendix
 
 ### MVP
 
