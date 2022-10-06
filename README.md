@@ -1,4 +1,122 @@
-# Capstone Planning Log
+# Foodie Alliance
+
+#### Foodie Alliance is a place where people can share their interests and passions about food and restaurants via the internet.
+
+#### By Zhibin Liang
+
+## Technologies Used
+
+- [React](https://reactjs.org/)
+  - [Redux](https://redux.js.org/)
+  - [React Router](https://reactrouter.com/)
+  - [React Google Maps API](https://react-google-maps-api-docs.netlify.app/)
+- [Firebase](https://firebase.google.com/)
+  - [Cloud Firestore](https://firebase.google.com/docs/firestore)
+  - [Firebase Authentication](https://firebase.google.com/docs/auth)
+- [Yele Fusion API](https://www.yelp.com/developers/documentation/v3/)
+- [Google Map API](https://developers.google.com/maps)
+- [cors-anywhere](https://github.com/Rob--W/cors-anywhere)
+- [query-string](https://github.com/sindresorhus/query-string)
+- [styled-components](https://styled-components.com/)
+- [Material UI](https://mui.com/)
+
+## Description
+
+With trusted local business information, Food Alliance provides a platform solution that allows users to search, locate and post reviews about their visited restaurants.
+
+## Setup/Installation Requirements
+
+### Getting the repo
+
+- Clone the repo to your desktop or any directory of your choice
+
+  - Run the command below in a bash terminal with [Git](https://github.com/git-guides/install-git) installed
+
+    ```
+    git clone https://github.com/zbl14/foodie-alliance.git
+    ```
+
+- Or download as a zip file
+  - Click the green code button on the repository page
+  - At the bottom of the popup window select `Download ZIP`
+  - Extract the downloaded .zip folder
+
+### Installing Dependencies
+
+- Make sure you have [Node.js](https://nodejs.org/en/download/) installed
+- Open bash terminal in the top level of this directory
+- Run `npm install` to install dependencies
+
+### Adding API key
+
+- This project does not include the Yelp API and Google Map API information you need, you must create your own in order to use this app locally
+
+  - Get your Yelp API key on [Yelp Fusion](https://fusion.yelp.com/)
+  - Get your Google Map API key on [Google Maps Platform](https://developers.google.com/maps)
+  - Create .env at root directory
+  - Add your Yelp API key and Google Map API key to .env
+
+    ```
+    REACT_APP_YELP_API_KEY=<Your Yelp Fusion apiKey>
+
+    REACT_APP_MAP_KEY=<Your Google Map apiKey>
+    ```
+
+### Adding firebase config
+
+- This project does not include the firebase API information you need, you must create your own in order to use this app locally
+
+  - Sign up for [Firebase](https://firebase.google.com/)
+  - In your firebase console add a project
+    - Navigate to the project and register a web app
+    - Get your web app's Firebase configuration
+      ```
+      const firebaseConfig = {
+        apiKey: <Your apiKey>,
+        authDomain: <Your authDomain>,
+        projectId: <Your projectId>,
+        storageBucket: <Your storageBucket>,
+        messagingSenderId: <Your messagingSenderId>,
+        appId: <Your appId>
+      };
+      ```
+    - Add following lines to .env with your firebaseConfig
+      ```
+      REACT_APP_FIREBASE_API_KEY = <Your apiKey>,
+      REACT_APP_FIREBASE_AUTH_DOMAIN = <Your authDomain>
+      REACT_APP_FIREBASE_PROJECT_ID = <Your projectId>
+      REACT_APP_FIREBASE_STORAGE_BUCKET = <Your storageBucket>
+      REACT_APP_FIREBASE_MESSAGING_SENDER_ID = <Your messagingSenderId>
+      REACT_APP_FIREBASE_APP_ID = <Your appId>
+      ```
+  - In the project on the left hand panel add Authentication
+    - Select Sign-in method and add Email/Password
+  - In the project on the left hand panel add Firestore Database
+  - You're ready to use the app!
+
+    - `npm start`
+
+      - Runs the app in the development mode
+      - Open [http://localhost:3000](http://localhost:3000) to view it in your browser
+
+    - `npm test`
+      - Launches the test runner in the interactive watch mode
+    - `npm run build`
+      - Builds the app for production to the `build` folder
+
+## Known Bugs
+
+- A user can upvote/downvote a review more than once. Should be fixed soon!
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Contact Information
+
+Zhibin Liang <ifthereisoneday@gmail.com>
+
+### Capstone Research & Planning Log
 
 **ALL TIMES ARE IN PST**
 
@@ -23,3 +141,5 @@
 - **2022-09-24 16:22 PM**: Google Map React supports React 18 but need to disable StrictMode :/ (https://github.com/google-map-react/google-map-react/issues/1116)
 - **2022-09-25 07:54 AM**: Disable StrictMode can address the issue that not showing marker on the map with **React Google Maps API** in React 18. Take this as a compromise solution.
 - **2022-09-25 08:14 AM**: Replace the compromise solution. Use MarkerF insead of Marker can address the issue. It can show markers under StrictMode. (https://github.com/JustFly1984/react-google-maps-api/issues/3048)
+
+Copyright &copy; 2022 Zhibin Liang
