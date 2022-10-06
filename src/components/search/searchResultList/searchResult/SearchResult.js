@@ -78,6 +78,9 @@ const SearchResult = (props) => {
               <Avatar alt={business.name} src="#" aria-label="business" />
             }
             title={business.name}
+            titleTypographyProps={{
+              fontWeight: "bold",
+            }}
           />
           <CardMedia
             component="img"
@@ -130,7 +133,12 @@ const SearchResult = (props) => {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>{business.name}</Typography>
+            <Typography
+              paragraph
+              sx={{ fontWeight: "bold", textAlign: "center" }}
+            >
+              {business.name}
+            </Typography>
             <Typography paragraph>
               Business Phone: {business.display_phone}
             </Typography>
