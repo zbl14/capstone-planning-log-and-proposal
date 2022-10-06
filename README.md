@@ -131,7 +131,7 @@ With trusted local business information, Food Alliance provides a platform solut
 
 ## Contact Information
 
-Zhibin Liang <ifthereisoneday@gmail.com>
+Zhibin Liang [Email](ifthereisoneday@gmail.com) || [GitHub](https://github.com/zbl14) || [LinkedIn](https://www.linkedin.com/in/zhibin-liang/)
 
 ## Appendix
 
