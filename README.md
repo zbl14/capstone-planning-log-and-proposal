@@ -25,6 +25,15 @@
 
 With trusted local business information, Food Alliance provides a platform solution that allows users to search, locate and post reviews about their visited restaurants.
 
+- Screenshot of the landing page
+  ![landingpage](/src/assets/screenshot/landingpage.png)
+
+- Screenshot of the searched results
+  ![search-result](/src/assets/screenshot/search%20results.png)
+
+- Screenshot of reviews
+  ![reviews](/src/assets/screenshot/reviews.png)
+
 ## Technologies Used
 
 - [React](https://reactjs.org/)
