@@ -35,6 +35,7 @@ const ExpandMore = styled((props) => {
 
 const SearchResult = (props) => {
   const business = props.business;
+  console.log(business);
   const [expanded, setExpanded] = React.useState(false);
 
   const tags = business.categories.map((category) => (
@@ -58,7 +59,7 @@ const SearchResult = (props) => {
   };
 
   const handleClickingGetDirection = () => {
-    const url = `https://www.google.com/maps/dir/?api=1&destination=${business.name}`;
+    const url = `https://www.google.com/maps/dir/?api=1&destination=${business.location.address1}%20${business.location.city}%20${business.location.state}%20${business.location.zip_code}`;
     window.open(url);
   };
 
