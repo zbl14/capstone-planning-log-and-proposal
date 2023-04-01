@@ -35,7 +35,6 @@ const ExpandMore = styled((props) => {
 
 const SearchResult = (props) => {
   const business = props.business;
-  console.log(business);
   const [expanded, setExpanded] = React.useState(false);
 
   const tags = business.categories.map((category) => (
